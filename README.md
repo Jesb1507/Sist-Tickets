@@ -8,12 +8,12 @@
 ## Build Setup
 
 ```bash
-# install dependencies
+# instalar
 $ npm install
 
-# server with hot reload at localhost:3000
+# server con hot reload
 $ npm run dev
 
-# generate static project
+# generar proyecto estatico
 $ npm run generate
 ```
