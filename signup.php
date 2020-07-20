@@ -1,55 +1,67 @@
-<?php
-try{
-    $conn=new PDO("mysql:host=localhost;dbname=php_login_database;","root", "");
-}catch (Exception $e){
-    die("Connection Fail: ".$e->getMessage());
+  
+<?php session_start();
+
+if(isset($_SESSION['email'])) {
+    header('location: inicio.php');
 }
-$message = '';
 
-if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':email', $_POST['email']);
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $stmt->bindParam(':password', $password);
 
-        if ($stmt->execute()) {
-            $message = 'Usuario creado correctamente';
-        } else {
-            $message = 'Ha ocurrido un error, no se pudo crear el usuario';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    // $password2 = $_POST['$password2'];
+    
+    $password = hash('sha512', $password);
+    // $password2 = hash('sha512', $password2);
+    
+    $error = '';
+    
+    if (empty($email) or empty($nombre) or empty($apellido) or empty($clave) or empty($clave2)){
+        
+        $error .= '<i>Favor de rellenar todos los campos</i>';
+    }else{
+        try{
+            $conexion = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
+        }catch(PDOException $prueba_error){
+            echo "Error: " . $prueba_error->getMessage();
         }
+        
+        $statement = $conexion->prepare('SELECT * FROM login WHERE nombre = :nombre LIMIT 1');
+        $statement->execute(array(':nombre' => $nombre));
+        $resultado = $statement->fetch();
+        
+                    
+        if ($resultado != false){
+            $error .= '<i>Este correo ya está registrado</i>';
+        }
+        
+        if ($password != $password2){
+            $error .= '<i> Las contraseñas no coinciden</i>';
+        }
+        
+        
     }
+    
+    if ($error == ''){
+        $statement = $conexion->prepare('INSERT INTO usuarios (id,nombre, apellido, email, password) VALUES (null, :nombre, :apellido, :email, :password)');
+        $statement->execute(array(
+            
+            ':email' => $email,
+            ':nombre' => $nombre,
+            'apellido' => $apellido,
+            ':password' => $password
+            
+        ));
+        
+        $error .= '<i style="color: green;">Usuario registrado exitosamente</i>';
+    }
+}
+
+
+require 'FE/Registro.php';
+
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-    <?php if(!empty($message)): ?>
-        <p><?=$message?></p>
-        <?php endif; ?>
-    <h1 class="mt-5">REGISTRO</h1>
-    <span style="color: white;">o <a style="color: red;" href="login.php">Iniciar sesion</a> </span>
-    <div class = "containerreg">
-        <form action="signup.php" method="post">
-            <input type="text" name="nombre" placeholder="Nombre"> 
-            <input type="text" name="nombre" placeholder="Apellido">
-            <input type="text" name="email" placeholder="Ingrese su email">
-            <input type="password" name="password" placeholder="Ingrese la contraseña">
-            <input type="password" name="confirmpassword" placeholder="Confirme la contraseña">
-            <input type="submit" value="Registrarse">
-        </form>
-    </div>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-</body>
-</html>
