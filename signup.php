@@ -2,7 +2,7 @@
 <?php session_start();
 
 if(isset($_SESSION['email'])) {
-    header('location: inicio.php');
+    header('location: index.php');
 }
 
 
@@ -13,14 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $apellido = $_POST['apellido'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    // $password2 = $_POST['$password2'];
+    $password2 = $_POST['password2'];
     
     $password = hash('sha512', $password);
-    // $password2 = hash('sha512', $password2);
+    $password2 = hash('sha512', $password2);
     
     $error = '';
     
-    if (empty($email) or empty($nombre) or empty($apellido) or empty($clave) or empty($clave2)){
+    if (empty($email) or empty($nombre) or empty($apellido) or empty($password) or empty($password2)){
         
         $error .= '<i>Favor de rellenar todos los campos</i>';
     }else{
@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             echo "Error: " . $prueba_error->getMessage();
         }
         
-        $statement = $conexion->prepare('SELECT * FROM login WHERE nombre = :nombre LIMIT 1');
-        $statement->execute(array(':nombre' => $nombre));
+        $statement = $conexion->prepare('SELECT * FROM usuarios WHERE email = :email LIMIT 1');
+        $statement->execute(array(':email' => $email));
         $resultado = $statement->fetch();
         
                     
@@ -47,17 +47,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     
     if ($error == ''){
-        $statement = $conexion->prepare('INSERT INTO usuarios (id,nombre, apellido, email, password) VALUES (null, :nombre, :apellido, :email, :password)');
+        $statement = $conexion->prepare('INSERT INTO usuarios (iduser,nombre, apellido, email, password) VALUES (null, :nombre, :apellido, :email, :password)');
         $statement->execute(array(
             
             ':email' => $email,
             ':nombre' => $nombre,
-            'apellido' => $apellido,
+            ':apellido' => $apellido,
             ':password' => $password
             
         ));
         
         $error .= '<i style="color: green;">Usuario registrado exitosamente</i>';
+        
     }
 }
 

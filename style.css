@@ -1,4 +1,4 @@
-body{
+.body{
     margin: 0;
     min-height: 100vh;
     background: url(./bg2.png)no-repeat;
@@ -84,7 +84,7 @@ input[type="submit"]{
     margin:12px 
 }
 
-input[type="submit"]:hover{
+/* input[type="submit"]:hover{
     width: 300px;
     background: #2fcf35;
     border: 2px solid #2fcf35;
@@ -93,11 +93,12 @@ input[type="submit"]:hover{
     font-size: 22px ;
     cursor: pointer;
     margin:12px 
-}
+} */
 
-header{
+.header{
+    padding: 20px;
     border-bottom: 5px solid #2fcf34;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 100%;
     color: rgb(0, 0, 0);
 }
@@ -117,7 +118,7 @@ header{
 
 .btn{
     outline-color: rgba(255, 232, 23, 0);
-    width: 300px;
+    width: 100%;
     border-radius: 6px;
     border-color: rgba(255, 231, 12, 0);
     border-right: 4px solid #2fcf34cc;
@@ -141,7 +142,7 @@ header{
     color: rgb(0, 0, 0);
 }
 
-footer{
+.footer{
     border-top: 5px solid #2fcf34;
     padding: 10px 0;
     margin-top: 730px;
