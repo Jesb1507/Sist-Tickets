@@ -6,15 +6,4 @@
   
   Jeferson Rodríguez 2018-1043
   
-## Build Setup
-
-```bash
-# instalar
-$ npm install
-
-# server con hot reload
-$ npm run dev
-
-# generar proyecto estatico
-$ npm run generate
-```
+  Juan Canahuate 2018-1004
