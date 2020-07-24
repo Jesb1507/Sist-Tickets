@@ -12,17 +12,8 @@
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
-    <header>
-      <div class="d-flex bd-highlight">
-          <div class="mr-auto bd-highlight">
-              <h2 style="color: rgb(0, 0, 0);" class="mt-3">LaCamiontaExpress</h1>
-          </div>
-          <div align="right">
-              <a class="btn" role="button" href="index.html">INICIO</a>
-              <a class="btn" role="button" href="signup.php">REGISTRARSE</a>
-          </div>
-      </div>
-    </header>
+    <h1 class="mt-5">INICIAR SESION</h1>
+    <span style="color: white;">o <a style="color: red;" href="signup.php">Registrarte</a></span>
     <div class= "containerlog">
       <form action="login.php" method="POST">
         <input name="email" type="text" placeholder="Ingrese su email">
