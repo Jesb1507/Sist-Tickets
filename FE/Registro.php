@@ -1,31 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
+    <title>Registro</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
-
+    
 </head>
 <body>
+    
+<div class="containerreg">
+        <div class="header">
+            <div class="logo-title">
+                <h2>Camionta Express</h2>
+            </div>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
 
-    <?php if(!empty($message)): ?>
-        <p><?=$message?></p>
-        <?php endif; ?>
-    <h1>Registro</h1>
-    <span>o <a style="color: red;" href="login.php">Iniciar sesion</a> </span>
-    <div class = "containerreg">
-    <form action="signup.php" method="post">
-        <input type="text" name="nombre" placeholder="Nombre"> 
-        <input type="text" name="lastname" placeholder="Apellido">
-        <input type="text" name="email" placeholder="Ingrese su email">
-        <input type="password" name="password" placeholder="Ingrese la contraseña">
-        <input type="password" name="confirmpassword" placeholder="Confirme la contraseña">
-        <input type="submit" value="Registrarse">
-    </form>
+            <div class="user line-input">
+                <input type="text" placeholder="Nombre" name="nombre">
+            </div>
+            
+            <div>
+                <input type="text" placeholder="Apellido" name="apellido">
+            </div>
+            <div>
+                <input type="text" placeholder="Correo" name="email">
+            </div>
+            <div class="password line-input">
+                <input type="password" name="password" placeholder="Ingrese la contraseña">
+                <input type="password" name="password2" placeholder="Confirme la contraseña">
+            </div>
+            
+            
+             <?php if(!empty($error)): ?>
+            <div class="mensaje">
+                <?php echo $error; ?>
+            </div>
+            <?php endif; ?>
+            
+            <input type="submit" value="Registrarse">
+            
+        </form>
     </div>
-
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

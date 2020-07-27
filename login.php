@@ -1,6 +1,6 @@
 <?php session_start();
 
-    if(isset($_SESSION['usuario'])) {
+    if(isset($_SESSION['email'])) {
         header('location: inicio.php');
     }
 
@@ -8,14 +8,16 @@
     
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
-        $email   = $_POST['email'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
+        $password = hash('sha512', $password);
         
         try{
             $conexion = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
-        }catch(PDOException $prueba_error){
-            echo "Error: " . $prueba_error->getMessage();
-        }
+            }catch(PDOException $message_error){
+                echo "Error: " . $prueba_error->getMessage();
+            }
+        
         $statement = $conexion->prepare('
         SELECT * FROM usuarios WHERE email = :email AND password = :password'
         );
@@ -28,8 +30,8 @@
         $resultado = $statement->fetch();
         
         if ($resultado !== false){
-            $_SESSION['email'] = $usuario;
-            header('location: home.php');
+            $_SESSION['email'] = $email;
+            header('location: inicio.php');
         }else{
             $error .= '<i>Este usuario no existe</i>';
         }
