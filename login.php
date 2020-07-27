@@ -10,7 +10,6 @@
         
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $password = hash('sha512', $password);
         
         try{
             $conexion = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
@@ -28,11 +27,12 @@
         ));
             
         $resultado = $statement->fetch();
-        
-        $_SESSION['email'] = $usuario;
-        header('location: home.php');
-    }else{
+        if ($resultado !== false){  
+            $_SESSION['email'] = $email;
+            header('location: inicio.php');
+        }else{
         $error .= '<i>Este usuario no existe</i>';
+        }
     }
     
 require 'FE/login-vista.php';

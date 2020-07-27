@@ -29,24 +29,21 @@
     <div class= "containerlog">
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
           <div class="text-center">
-            <h2>La Camionta Express</h2>
-          </div>
-   
+              <h3>Iniciar Sesion</h3>
                 <input type="text" placeholder="Correo" name="email">
-
             <div class="password line-input">
                 <input type="password" placeholder="Contraseña" name="password">
             </div>
-            
+  
              <?php if(!empty($error)): ?>
             <div class="text-center">
                 <?php echo $error; ?>
             </div>
             <?php endif; ?>
             <div class="text-center">
-              <input type="submit" value="Registrarse">
+              <input type="submit" value="Entrar">
             </div>
-
+          </div>
         </form>
     </div>
 

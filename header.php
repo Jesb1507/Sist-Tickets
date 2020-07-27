@@ -1,11 +1,20 @@
-<div class="d-flex bd-highlight">
-        <div class="mr-auto bd-highlight">
-            <h2 style="color: rgb(0, 0, 0);" class="mt-3">LaCamiontaExpress</h1>
-        </div>
-          <div class="px-2">
-            <a class="btn" role="button" href="signup.php">REGISTRARSE</a>
-          </div>
-          <div class="px-2">
-            <a class="btn" role="button" href="login.php">INICIAR SESION</a>
-          </div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-80deg,#14c414,#09bcf3 ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="btn" role="button" href="logout.php">Cerrar Sesion</a>
