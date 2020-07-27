@@ -1,29 +1,43 @@
+<?php session_start();
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Iniciar Sesion</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
+    if(isset($_SESSION['email'])) {
+        header('location: inicio.php');
+    }
 
-  </head>
-  <body>
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
-    <h1 class="mt-5">INICIAR SESION</h1>
-    <span style="color: white;">o <a style="color: red;" href="signup.php">Registrarte</a></span>
-    <div class= "containerlog">
-      <form action="login.php" method="POST">
-        <input name="email" type="text" placeholder="Ingrese su email">
-        <input name="password" type="password" placeholder="Ingrese su contraseña">
-        <input type="submit" value="Ingresar">
-      </form>
-    </div>
+    $error = '';
+    
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $password = hash('sha512', $password);
+        
+        try{
+            $conexion = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
+            }catch(PDOException $message_error){
+                echo "Error: " . $prueba_error->getMessage();
+            }
+        
+        $statement = $conexion->prepare('
+        SELECT * FROM usuarios WHERE email = :email AND password = :password'
+        );
+        
+        $statement->execute(array(
+            ':email' => $email,
+            ':password' => $password
+        ));
+            
+        $resultado = $statement->fetch();
+        
+        if ($resultado !== false){
+            $_SESSION['email'] = $email;
+            header('location: index.html');
+        }else{
+            $error .= '<i>Este usuario no existe</i>';
+        }
+    }
+    
+require 'FE/login-vista.php';
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  </body>
-</html>
+
+?>
