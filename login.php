@@ -29,12 +29,10 @@
             
         $resultado = $statement->fetch();
         
-        if ($resultado !== false){
-            $_SESSION['email'] = $email;
-            header('location: inicio.php');
-        }else{
-            $error .= '<i>Este usuario no existe</i>';
-        }
+        $_SESSION['email'] = $usuario;
+        header('location: home.php');
+    }else{
+        $error .= '<i>Este usuario no existe</i>';
     }
     
 require 'FE/login-vista.php';

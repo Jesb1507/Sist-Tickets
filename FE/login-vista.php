@@ -7,18 +7,33 @@
     <link rel="stylesheet" href="./style.css">
 
   </head>
+  <header>
+  <header>
+    <div class="d-flex bd-highlight">
+      <div class="mr-auto bd-highlight">
+        <h2 style="color: rgb(0, 0, 0);" class="mt-3">LaCamiontaExpress</h1>
+        </div>
+        <div class="px-2">
+          <a class="btn" role="button" href="signup.php">REGISTRARSE</a>
+        </div>
+        <div class="px-2">
+          <a class="btn" role="button" href="home.php">Inicio</a>
+        </div>
+    </div>
+
+  </header>
   <body>
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
-    <h1 class="mt-5">INICIAR SESION</h1>
-    <span style="color: white;">o <a style="color: red;" href="signup.php">Registrarte</a></span>
     <div class= "containerlog">
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
-            <div class="text-center"><h2>La Camionta Express</h2></div>
-            <div class="user line-input">
-                <input type="text" placeholder="Nombre Usuario" name="email">
-            </div>
+          <div class="text-center">
+            <h2>La Camionta Express</h2>
+          </div>
+   
+                <input type="text" placeholder="Correo" name="email">
+
             <div class="password line-input">
                 <input type="password" placeholder="Contraseña" name="password">
             </div>
@@ -29,7 +44,7 @@
             </div>
             <?php endif; ?>
             <div class="text-center">
-            <input type="submit" value="Registrarse">
+              <input type="submit" value="Registrarse">
             </div>
 
         </form>

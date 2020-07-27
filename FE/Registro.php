@@ -8,7 +8,24 @@
         <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+
+<header>
+<header>
+    <div class="d-flex bd-highlight">
+      <div class="mr-auto bd-highlight">
+        <h2 style="color: rgb(0, 0, 0);" class="mt-3">LaCamiontaExpress</h1>
+        </div>
+        <div class="px-2">
+          <a class="btn" role="button" href="login.php">Iniciar Sesion</a>
+        </div>
+        <div class="px-2">
+          <a class="btn" role="button" href="index.html">Inicio</a>
+        </div>
+
+    </div>
+
+</header>
+
 <div class="containerreg">
         <div class="header">
             <div class="text-center">
