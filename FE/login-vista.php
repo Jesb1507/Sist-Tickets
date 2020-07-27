@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,23 +15,23 @@
     <span style="color: white;">o <a style="color: red;" href="signup.php">Registrarte</a></span>
     <div class= "containerlog">
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
-            <div class="welcome-form"><h1>La Camionta Express</h1></div>
+            <div class="text-center"><h2>La Camionta Express</h2></div>
             <div class="user line-input">
-                <label class="lnr lnr-user"></label>
                 <input type="text" placeholder="Nombre Usuario" name="email">
             </div>
             <div class="password line-input">
-                <label class="lnr lnr-lock"></label>
                 <input type="password" placeholder="Contraseña" name="password">
             </div>
             
              <?php if(!empty($error)): ?>
-            <div class="mensaje">
+            <div class="text-center">
                 <?php echo $error; ?>
             </div>
             <?php endif; ?>
-            
+            <div class="text-center">
             <input type="submit" value="Registrarse">
+            </div>
+
         </form>
     </div>
 

@@ -1,7 +1,7 @@
 .body{
     margin: 0;
     min-height: 100vh;
-    background: url(./Images/bg2.png)no-repeat;
+    background: url(./bg2.png)no-repeat;
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -9,19 +9,20 @@
     font-weight: bold;
 }
 
-body:after{
+.body:after{
     content: "";
     width: 100%;
     min-height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
+
     background: linear-gradient(80deg,#14c414,#09bcf3);
     opacity: 0.20;
     z-index: -1;
 }
 
-.h1{
+h1{
     color: #ffffff;
     font-weight: normal;
     font-size: 52px;
@@ -57,7 +58,7 @@ body:after{
 
 }
 
-input[type="text"], input[type="password"]{
+.input[type="text"], input[type="password"]{
     outline: none;
     padding: 20px;
     display: block;
@@ -72,7 +73,7 @@ input[type="text"], input[type="password"]{
     
 }
 
-.ilnr lnr-chevron-right{
+.input[type="submit"]{
     width: 300px;
     background: none;
     border: 2px solid #2fcf35;
@@ -82,8 +83,7 @@ input[type="text"], input[type="password"]{
     cursor: pointer;
     margin:12px 
 }
-
-.lnr lnr-chevron-right:hover{
+.input[type="submit"]:hover{
     width: 300px;
     background: #2fcf35;
     border: 2px solid #2fcf35;
@@ -92,9 +92,9 @@ input[type="text"], input[type="password"]{
     font-size: 22px ;
     cursor: pointer;
     margin:12px 
-} 
+}
 
-header{
+.header{
     padding: 20px;
     border-bottom: 5px solid #2fcf34;
     margin-bottom: 20px;
@@ -104,7 +104,7 @@ header{
 
 .btn:hover{
     outline-color: rgba(187, 224, 24, 0);
-    width: 300px;
+    width: 100%;
     border-radius: 3px;
     border-color: rgba(240, 230, 140, 0.021);
     margin: 10px auto;
