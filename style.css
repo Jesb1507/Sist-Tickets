@@ -10,17 +10,16 @@
 
 }
 
-body:after{
+/* body:after{
     content: "";
     width: 100%;
     min-height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(80deg,#14c414,#09bcf3);
     opacity: 0.20;
     z-index: -1;
-}
+} */
 
 .containerreg{
     width: 100%;

@@ -1,10 +1,7 @@
-  
+
 <?php
-
-try {
-  $conn = new PDO("mysql:host=localhost;dbname=root;", '', gtdatabase);
-} catch (PDOException $e) {
-  die('Connection Failed: ' . $e->getMessage());
-}
-
+    $mysqli = new mysqli("localhost", "root", "", "gtdatabase");
+    if ($mysqli->connect_errno) {
+        echo "Fallo al conectar a MYSQL:";
+    }
 ?>
