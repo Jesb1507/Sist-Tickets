@@ -5,34 +5,31 @@
     <title>Iniciar Sesion</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
-
   </head>
-  <header>
   <header>
     <div class="d-flex bd-highlight">
       <div class="mr-auto bd-highlight">
         <h2 style="color: rgb(0, 0, 0);" class="mt-3">LaCamiontaExpress</h1>
-        </div>
-        <div class="px-2">
-          <a class="btn" role="button" href="signup.php">REGISTRARSE</a>
-        </div>
-        <div class="px-2">
-          <a class="btn" role="button" href="home.php">Inicio</a>
-        </div>
+      </div>
+      <div class="px-2">
+        <a class="btn" role="button" href="signup.php">REGISTRARSE</a>
+      </div>
+      <div class="px-2">
+        <a class="btn" role="button" href="home.php">Inicio</a>
+      </div>
     </div>
-
   </header>
   <body>
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
     <div class= "containerlog">
-    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form" id="formlog">
           <div class="text-center">
               <h3>Iniciar Sesion</h3>
-                <input type="text" placeholder="Correo" name="email">
+                <input type="text" placeholder="Correo" name="email" id="email">
             <div class="password line-input">
-                <input type="password" placeholder="Contraseña" name="password">
+                <input type="password" placeholder="Contraseña" name="passw" id="passw">
             </div>
   
              <?php if(!empty($error)): ?>

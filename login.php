@@ -9,7 +9,7 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = $_POST['passw'];
         
         try{
             $conexion = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
@@ -18,12 +18,12 @@
             }
         
         $statement = $conexion->prepare('
-        SELECT * FROM usuarios WHERE email = :email AND password = :password'
+        SELECT * FROM usuarios WHERE email = :email AND password = :passw'
         );
         
         $statement->execute(array(
             ':email' => $email,
-            ':password' => $password
+            ':passw' => $password
         ));
             
         $resultado = $statement->fetch();
