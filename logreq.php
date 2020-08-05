@@ -76,7 +76,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
   </head>
-  <header>
+  <header style="background-color:rgb(47, 224, 186);">
     <div class="d-flex bd-highlight">
       <div class="mr-auto bd-highlight">
         <h2 style="color: rgb(0, 0, 0);" class="mt-3">LaCamiontaExpress</h1>
@@ -85,7 +85,7 @@
         <a class="btn" role="button" href="signup.php">REGISTRARSE</a>
       </div>
       <div class="px-2">
-        <a class="btn" role="button" href="home.php">Inicio</a>
+        <a class="btn" role="button" href="index.html">Inicio</a>
       </div>
     </div>
   </header>

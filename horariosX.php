@@ -1,3 +1,6 @@
+<?php
+  include('./consulta.php');
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,11 +20,11 @@
     
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="./horariosX.php">Horarios</a>
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./horariosX.php">Horarios<span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -33,6 +36,46 @@
       </div>
   </div>
 </header>
+
+<div class="panel panel-default" style="margin-top: 10 px">
+    <div class="panel-heading">
+        <h1>Horarios</h1>
+    </div>
+    <div class="panel-body">
+        <br>
+        <hr>
+        <table class="table table-striped" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th>Id Ruta</th>
+                    <th>Ruta</th>
+                    <th>Hora</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $query = lista_idrutas();
+                    while ($row = $query->fetch_assoc()) {
+                        echo"
+                            <tr>
+                                <td>".$row['idrutas']."</td>
+                                <td>".$row['ruta']."</td>
+                                <td>".$row['hora']."</td>
+                            </tr>
+
+                        ";
+                    }
+                ?>
+
+
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

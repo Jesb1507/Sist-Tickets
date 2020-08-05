@@ -10,13 +10,13 @@
 <body>
 
 <header>
-<header>
+<header style="background-color:rgb(47, 224, 186);">
     <div class="d-flex bd-highlight">
       <div class="mr-auto bd-highlight">
         <h2 style="color: rgb(0, 0, 0);" class="mt-3">LaCamiontaExpress</h1>
         </div>
         <div class="px-2">
-          <a class="btn" role="button" href="login.php">Iniciar Sesion</a>
+          <a class="btn" role="button" href="logreq.php">Iniciar Sesion</a>
         </div>
         <div class="px-2">
           <a class="btn" role="button" href="index.html">Inicio</a>
