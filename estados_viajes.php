@@ -4,6 +4,15 @@
     $mensaje = '';
     $color = '';
 
+    session_start();
+    if(!isset($_SESSION['rol'])){
+        header('location: logreq.php');
+    }else{
+        if($_SESSION['rol'] != 1){
+            header('location: logreq.php');
+        }
+    }
+
     if (isset($_GET['s'])){
         switch ($_GET['s']) {
             case 'successdlt':
@@ -64,7 +73,7 @@
                             <tr>
                                 <td>".$row['idrutas']."</td>
                                 <td>".$row['ruta']."</td>
-                                <td>".$row['fecha/hora']."</td>
+                                <td>".$row['hora']."</td>
                                 <td>".$row['estado']."</td>
                                 <td> <a data-toggle='tooltip' title='Habilitar' href='ruta.php?accion=HBL&id=".$row['idrutas']."' class='btn btn-primary'> <img src='img/editar.png' width=34px /> </a> </td>
                                 <td> <a data-toggle='tooltip' title='Anular' href='ruta.php?accion=DLT&id=".$row['idrutas']."' class='btn btn-danger'> <img src='img/basura.png' width=34px /> </a></td>

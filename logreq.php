@@ -39,7 +39,9 @@
         
         if($row == true){
             $rol = $row[6];
-            
+            $Nuser = $row[1];
+
+            $_SESSION['Nuser'] = $Nuser;
             $_SESSION['rol'] = $rol;
             switch($rol){
                 case 1:

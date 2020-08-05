@@ -29,7 +29,7 @@
                             <tr>
                                 <td>".$row['idrutas']."</td>
                                 <td>".$row['ruta']."</td>
-                                <td>".$row['fecha/hora']."</td>
+                                <td>".$row['hora']."</td>
                             </tr>
 
                         ";
