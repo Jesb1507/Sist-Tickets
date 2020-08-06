@@ -1,6 +1,9 @@
 <?php
   include('./consulta.php');
-  ?>
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +39,9 @@
       </div>
   </div>
 </header>
+
+
+
 
 <div class="panel panel-default" style="margin-top: 10 px">
     <div class="panel-heading">

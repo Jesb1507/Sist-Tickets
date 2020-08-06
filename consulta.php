@@ -1,8 +1,9 @@
 <?php
-	function lista_idrutas(){		
+	function lista_idrutas(){	
 		include('database.php');
-		// $hora=new Date().toLocaleString();
-		$sql="SELECT * FROM `rutas` WHERE `estado`= 'A'";
+		date_default_timezone_set('America/Santo_Domingo');
+		$hora= date("H:i:s");
+		$sql="SELECT `idrutas`, `ruta`, `hora`, `estado` FROM `rutas` WHERE `hora` >= '$hora+10'";
 		return $result=$mysqli->query($sql); 
 	}
 
@@ -25,3 +26,4 @@
 	// }
 
 ?>
+
