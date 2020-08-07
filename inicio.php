@@ -3,7 +3,7 @@
     if(isset($_SESSION['rol'])) {
         header('location: home.php');
     }else{
-        header('location: index.html');
+        header('location: index.php');
     }
 
 

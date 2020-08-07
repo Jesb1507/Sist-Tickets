@@ -18,7 +18,7 @@
           <a class="btn" role="button" href="logreq.php">Iniciar Sesion</a>
         </div>
         <div class="px-2">
-          <a class="btn" role="button" href="index.html">Inicio</a>
+          <a class="btn" role="button" href="index.php">Inicio</a>
         </div>
 
     </div>
