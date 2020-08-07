@@ -37,6 +37,9 @@
   </div>
 </header>
 
+
+
+
 <div class="panel panel-default" style="margin-top: 10 px">
     <div class="panel-heading">
         <h1>Horarios</h1>
@@ -56,7 +59,7 @@
             </thead>
             <tbody>
                 <?php
-                    $query = lista_idrutasX();
+                    $query = lista_idrutas();
                     while ($row = $query->fetch_assoc()) {
                         echo"
                             <tr>

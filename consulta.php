@@ -5,12 +5,6 @@
         $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time'";
         return $result=$mysqli->query($sql); 
     }
-	
-    function lista_idrutasX(){		
-        include('database.php');
-        $time = date("H:i:s");
-        $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time'";
-        return $result=$mysqli->query($sql); 
-    }
 
 ?>
+
