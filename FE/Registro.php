@@ -9,7 +9,6 @@
 </head>
 <body background="bg2.png">
 
-<header>
 <header style="background-color:rgb(47, 224, 186);">
     <div class="d-flex bd-highlight">
       <div class="mr-auto bd-highlight">

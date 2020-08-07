@@ -2,7 +2,7 @@ jQuery(document).on('submit','#formlog',function(event){
     event.preventDefault();
 
     jQuery.ajax({
-        url: 'login.php',
+        url: 'logreq.php',
         type: 'POST',
         dataType: 'json',
         data: $(this).serialize(),

@@ -31,16 +31,22 @@
     if(isset($_POST['email']) && isset($_POST['password'])){
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $password = hash('sha512', $password);
 
         $query = $conexion->prepare('SELECT * FROM usuarios WHERE email = :email AND password = :password');
         $query->execute(['email' => $email, 'password' => $password]);
 
         $row = $query->fetch(PDO::FETCH_NUM);
-        
+
+        $Nuser='';
+
         if($row == true){
+            
             $rol = $row[6];
             $Nuser = $row[1];
+            $IDuser = $row[0];
 
+            $_SESSION['IDuser'] = $IDuser;
             $_SESSION['Nuser'] = $Nuser;
             $_SESSION['rol'] = $rol;
             switch($rol){

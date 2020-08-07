@@ -1,6 +1,5 @@
 <?php
 include('database.php');
-
 // INS | UDT | DLT
 
 $i = '';
@@ -10,6 +9,13 @@ if (isset($_GET['accion'])) {
 
 if (isset($_GET['id'])) {
     $codigo = $_GET['id'];
+}
+
+if (isset($_GET['idC'])) {
+    session_start();
+    $compra = $_GET['idC'];
+    $_SESSION['idruta'] = $compra;
+    header("Location:./compra.php");
 }
 
 if ($i == 'DLT') {    

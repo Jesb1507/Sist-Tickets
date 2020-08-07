@@ -4,7 +4,6 @@
     $mensaje = '';
     $color = '';
 
-    session_start();
     if(!isset($_SESSION['rol'])){
         header('location: logreq.php');
     }else{
@@ -34,15 +33,14 @@
         <span>'.$mensaje.'</span>
         </div>';
     }
-?>
-<?php 
+    
     function lista_estadorutas(){		
-		include('database.php');	
-		$sql="SELECT * FROM `rutas`";
-		return $result=$mysqli->query($sql); 
-	}
-
+        include('database.php');	
+        $sql="SELECT * FROM `rutas`";
+        return $result=$mysqli->query($sql); 
+    }
 ?>
+
 <!-- Inicio de Panel de Detalles -->
 <div class="panel panel-default" style="margin-top: 10 px">
     <div class="panel-heading">

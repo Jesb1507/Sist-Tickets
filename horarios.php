@@ -1,6 +1,5 @@
 <?php
     include('./header.php');
-    session_start();
     if(!isset($_SESSION['rol'])){
         header('location: logreq.php');
     }else{
@@ -37,6 +36,7 @@
                                 <td>".$row['idrutas']."</td>
                                 <td>".$row['ruta']."</td>
                                 <td>".$row['hora']."</td>
+                                <td> <a data-toggle='tooltip' title='Comprar' href='ruta.php?idC=".$row['idrutas']."' class='btn btn-primary'> <img src='img/compra.png' width=26px /> </a> </td>
                             </tr>
 
                         ";

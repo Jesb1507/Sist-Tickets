@@ -1,5 +1,5 @@
 <?php
-  include('./consulta.php');
+    include('./consulta.php');
   ?>
 <!DOCTYPE html>
 <html lang="en">
