@@ -56,7 +56,7 @@
             </thead>
             <tbody>
                 <?php
-                    $query = lista_idrutas();
+                    $query = lista_idrutasX();
                     while ($row = $query->fetch_assoc()) {
                         echo"
                             <tr>
