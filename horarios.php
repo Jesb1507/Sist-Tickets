@@ -23,6 +23,7 @@
                     <th>Id Ruta</th>
                     <th>Ruta</th>
                     <th>Hora</th>
+                    <th>Precio</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -36,7 +37,8 @@
                                 <td>".$row['idrutas']."</td>
                                 <td>".$row['ruta']."</td>
                                 <td>".$row['hora']."</td>
-                                <td> <a data-toggle='tooltip' title='Comprar' href='ruta.php?idC=".$row['idrutas']."' class='btn btn-primary'> <img src='img/compra.png' width=26px /> </a> </td>
+                                <td>".$row['precio']."</td>
+                                <td> <a data-toggle='tooltip' title='Comprar' href='ruta.php?idP=".$row['precio']."&idC=".$row['idrutas']."&rta=".$row['ruta']."&hrs=".$row['hora']."' class='btn btn-primary'> <img src='img/compra.png' width=26px /></a> </td>
                             </tr>
 
                         ";

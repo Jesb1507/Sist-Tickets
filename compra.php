@@ -1,7 +1,7 @@
 <?php
     include('./header.php');
     try{
-        $conexion = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
+        $mysqli = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
     }catch(PDOException $prueba_error){
         echo "Error: " . $prueba_error->getMessage();
     }
@@ -29,21 +29,11 @@
             
             $error .= '<i>Favor de rellenar todos los campos</i>';
         }
-        if($error == ''){      
-
-            $statement = $conexion->prepare('INSERT INTO metodopago (idmpago, iduser, nombre_titular, codigotarj, fechaventarj) VALUES (null, :iduser, :nombre_titular, :codigotarj, :fechaventarj)');
-            $statement->execute(array(
-                    
-                ':iduser' => $iduser,
-                ':nombre_titular' => $NombreT,
-                ':codigotarj' => $NumeroT,
-                ':fechaventarj' => $FechaT
-                
-            ));
-
+        if($error == ''){
+            
             $error .= '<i style="color: green;">Compra realizada exitosamente</i>';
            
-            $query2=$conexion->prepare('SELECT * FROM usuarios WHERE iduser = :iduser');
+            $query2=$mysqli->prepare('SELECT * FROM usuarios WHERE iduser = :iduser');
             $query2->execute(['iduser' => $iduser]);
             $row2 = $query2->fetch(PDO::FETCH_NUM);
 
@@ -51,10 +41,9 @@
             $puntosUp = $puntos + 5;
            
             
-            $Upoint = $conexion->prepare("UPDATE `usuarios` SET `puntos`= :puntosUp WHERE `iduser`=:iduser");
+            $Upoint = $mysqli->prepare("UPDATE `usuarios` SET `puntos`= :puntosUp WHERE `iduser`=:iduser");
             $Upoint->execute(array('puntosUp'=>$puntosUp, ':iduser'=>$iduser));
 
-            sleep(2);
             header('location: ticket.php');
         }
     }
@@ -77,6 +66,7 @@
                 <h2>Compra Ticket</h2>
                 <h5>Codigo de ruta: <?php echo $_SESSION['idruta']; ?> </h5> 
                 <h5>Usuario: <?php echo $_SESSION['IDuser']; ?> </h5>
+                <h5>Precio: <?php echo $_SESSION['precio']; ?> </h5>
             </div>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
 
@@ -85,13 +75,13 @@
             </div>
             
             <div>
-                <input type="number" min="0"  placeholder="Numero de la tarjeta" name="NumeroT">
+            <input name="NumeroT" type="text" min="0" maxlength="16" placeholder="Numero de la tarjeta">
             </div>
             <div>
-                <input type="number" min="0" placeholder="Fecha vencimiento" name="FechaT">
+                <input type="text" min="0" placeholder="Fecha vencimiento" maxlength="5" name="FechaT">
             </div>
             <div>
-                <input type="number" min="0" placeholder="Codigo CVV" name="Codigocvv">
+                <input type="text" min="0" maxlength="3" placeholder="Codigo CVV" name="Codigocvv">
             </div>
             
             <?php if(!empty($error)): ?>

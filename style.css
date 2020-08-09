@@ -1,13 +1,11 @@
 .body{
     margin: 0;
     min-height: 100vh;
-    background: url(/bg2.png)no-repeat;
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
     font-weight: bold;
-
 }
 
 .containerreg{
@@ -21,9 +19,20 @@
     padding-bottom: 50px;
     overflow: hidden;
     opacity: 1;
-
 }
 
+.containerreg{
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 2px;
+    overflow: hidden;
+    opacity: 1;
+}
 .containerlog{
     width: 100%;
     max-width: 400px;
@@ -32,10 +41,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding-bottom: 50px;
     overflow: hidden;
     opacity: 1;
-
 }
 
 input[type="text"], input[type="password"], input[type="number"]{
@@ -50,7 +57,6 @@ input[type="text"], input[type="password"], input[type="number"]{
     border-bottom: 6px solid #2fcf35;
     color: rgb(0, 0, 0);
     font-size: 22px;
-    
 }
 
 input[type="submit"]{
@@ -73,15 +79,20 @@ input[type="submit"]:hover{
     cursor: pointer;
     margin:12px 
 }
-
-.header{
+.header2{
     padding: 20px;
     border-bottom: 5px solid #2fcf34;
-    margin-bottom: 20px;
+    border-top: 5px solid #2fcf34;
     width: 100%;
     color: rgb(0, 0, 0);
 }
 
+.header{
+    padding: 20px;
+    border-bottom: 5px solid #2fcf34;
+    width: 100%;
+    color: rgb(0, 0, 0);
+}
 .btn:hover{
     outline-color: rgba(187, 224, 24, 0);
     width: 100%;
@@ -127,6 +138,13 @@ input[type="submit"]:hover{
     margin-top: 730px;
     width: 100%;
     text-align: right;
+    color: rgb(0, 0, 0);
+}
+.linea{
+    padding: 20px;
+    border-bottom: 5px solid #2fcf34;
+    margin-bottom: 20px;
+    width: 100%;
     color: rgb(0, 0, 0);
 }
 
