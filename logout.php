@@ -2,5 +2,5 @@
 <?php 
 session_start();
 session_destroy();
-header('location: logreq.php');
+header('location: index.php');
 ?>

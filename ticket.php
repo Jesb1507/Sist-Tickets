@@ -45,10 +45,16 @@ INSERT INTO `tickets`
         <h5>Ruta: <?php echo $_SESSION['ruta']?>   <?php echo $_SESSION['hora']?></h5> 
         <h5>Precio: <?php echo $_SESSION['precio']; ?> </h5>
         <br><br>
-        <div class="header"></div>
-
-    
-        <!-- <a class="btn" role="button" href="">Descargar</a> -->
+        <footer>
+            <div class="header2" >
+                <div class="p-2 flex-fill bd-highlight bg-danger" >
+                    <h3 align="center">¡Aviso!</h3>
+                    <p align="center">Los tickets no tienen reembolso, favor estar en la empresa de 5 a 10 minutos antes de la hora de su viaje, gracias.</p>
+                </div>
+            </div>
+        </footer>
     </div>
+
+
 </body>
 </html>

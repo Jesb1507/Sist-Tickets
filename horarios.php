@@ -14,6 +14,19 @@
     <div class="panel-heading">
         <h1>Horarios</h1>
     </div>
+    <div>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
+            <p>
+                <input type="text" name="lruta" id="lruta" list="listruta">
+                <input type="submit" class='btn' value="Filtrar">
+            </p>
+        </form>
+        <datalist id="listruta">
+            <option value="La Vega-Santiago de los caballeros">
+            <option value="La Vega-Salcedo">
+            <option value="La Vega-San Pedro de Macoris">
+        </datalist>
+    </div>
     <div class="panel-body">
         <br>
         <hr>
@@ -30,7 +43,7 @@
             </thead>
             <tbody>
                 <?php
-                    $query = lista_idrutas();
+                    $query = lista_idrutasU();
                     while ($row = $query->fetch_assoc()) {
                         echo"
                             <tr>
