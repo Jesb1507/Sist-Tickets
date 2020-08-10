@@ -11,31 +11,6 @@ if (isset($_GET['id'])) {
     $codigo = $_GET['id'];
 }
 
-if (isset($_GET['idC'])) {
-    session_start();
-    $compra = $_GET['idC'];
-    $_SESSION['idruta']= $compra;
-    header("Location:./compra.php");
-}
-if (isset($_GET['idP'])) {
-    session_start();
-    $precio = $_GET['idP'];
-    $_SESSION['precio'] = $precio;
-    header("Location:./compra.php");
-}
-if (isset($_GET['rta'])) {
-    session_start();
-    $ruta = $_GET['rta'];
-    $_SESSION['ruta'] = $ruta;
-    header("Location:./compra.php");
-}
-
-if (isset($_GET['hrs'])) {
-    session_start();
-    $hora= $_GET['hrs'];
-    $_SESSION['hora'] = $hora;
-    header("Location:./compra.php");
-}
 
 if ($i == 'DLT') {    
     $sql="
@@ -68,16 +43,32 @@ if ($i == 'HBL') {
 }
 
 
-if($i=='HBL'){
-    $sql="
-    UPDATE `rutas` SET
-    `estado` = 'A'";
 
-    if($mysqli->query($sql)){
-        $msj='successhbl';
-    } else{
-        $msj='errorhbl';
-    }
-    header("Location:./estados_viajes.php?s=".$msj);
+if (isset($_GET['idC'])) {
+    session_start();
+    $compra = $_GET['idC'];
+    $_SESSION['idruta']= $compra;
+    header("Location:./compra.php");
 }
+if (isset($_GET['idP'])) {
+    session_start();
+    $precio = $_GET['idP'];
+    $_SESSION['precio'] = $precio;
+    header("Location:./compra.php");
+}
+if (isset($_GET['rta'])) {
+    session_start();
+    $ruta = $_GET['rta'];
+    $_SESSION['ruta'] = $ruta;
+    header("Location:./compra.php");
+}
+
+if (isset($_GET['hrs'])) {
+    session_start();
+    $hora= $_GET['hrs'];
+    $_SESSION['hora'] = $hora;
+    header("Location:./compra.php");
+}
+
 ?>
+

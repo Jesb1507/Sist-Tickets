@@ -6,6 +6,7 @@
         return $result=$mysqli->query($sql); 
     }
 
+    
     function lista_idrutasU(){		
 
         if(isset($_POST['lruta'])){
@@ -22,6 +23,17 @@
             return $result=$mysqli->query($sql);
         }
     }
+    function lista_choferes(){
+        include('./database.php');
+        $sql="SELECT * FROM 'conductores'";
+        return $result=$mysqli->query($sql);
 
+    }
+
+    function extraerConductor($id){		
+		include('./database.php');	
+		$sql="SELECT * FROM conductores WHERE idconductor = '$id' ";
+		return $result=$mysqli->query($sql); 
+	}
 ?>
 

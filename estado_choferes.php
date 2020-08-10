@@ -1,6 +1,6 @@
 <?php
     include('headeradm.php');
-    include('ruta.php');
+    include('choferes.php');
     $mensaje = '';
     $color = '';
 
@@ -15,12 +15,12 @@
     if (isset($_GET['s'])){
         switch ($_GET['s']) {
             case 'successdlt':
-                $mensaje = 'Ruta inabilitada correctamente';
+                $mensaje = 'Registro inabilitado correctamente';
                 $color = 'success';
                 break;
             
             case 'errordlt':
-                $mensaje = 'Imposible inhabilitar la ruta';
+                $mensaje = 'Imposible inhabilitar el registro';
                 $color = 'danger';
                 break;
         }
@@ -29,12 +29,12 @@
     if (isset($_GET['s'])){
         switch ($_GET['s']) {
             case 'successhbl':
-                $mensaje = 'Ruta habilitada correctamente';
+                $mensaje = 'Conductor habilitado correctamente';
                 $color = 'success';
                 break;
             
             case 'errorhbl':
-                $mensaje = 'Imposible habilitar la ruta';
+                $mensaje = 'Imposible habilitar el registro';
                 $color = 'danger';
                 break;
         }
@@ -48,9 +48,9 @@
         </div>';
     }
     
-    function lista_estadorutas(){		
+    function lista_estachoferes(){		
         include('database.php');	
-        $sql="SELECT * FROM `rutas`";
+        $sql="SELECT * FROM `conductores`";
         return $result=$mysqli->query($sql); 
     }
 ?>
@@ -58,7 +58,7 @@
 <!-- Inicio de Panel de Detalles -->
 <div class="panel panel-default" style="margin-top: 10 px">
     <div class="panel-heading">
-        <h1>Listado de Rutas</h1>
+        <h1>Listado de Conductores</h1>
     </div>
     <div class="panel-body">
         <br>
@@ -66,9 +66,13 @@
         <table class="table table-striped" style="text-align: center;">
             <thead>
                 <tr>
-                    <th>Id Ruta</th>
-                    <th>Ruta</th>
-                    <th>Hora</th>
+                    <th>Id Conductor</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cedula</th>
+                    <th>Licencia de Conducir</th>
+                    <th>Sueldo</th>
+                    <th>Seguro</th>
                     <th>Estado</th>
                     <th></th>
                     <th></th>
@@ -76,16 +80,20 @@
             </thead>
             <tbody>
                 <?php
-                    $query = lista_estadorutas();
+                    $query = lista_estachoferes();
                     while ($row = $query->fetch_assoc()) {
                         echo"
                             <tr>
-                                <td>".$row['idrutas']."</td>
-                                <td>".$row['ruta']."</td>
-                                <td>".$row['hora']."</td>
+                                <td>".$row['idconductor']."</td>
+                                <td>".$row['nombre']."</td>
+                                <td>".$row['apellido']."</td>
+                                <td>".$row['cedula']."</td>
+                                <td>".$row['pconducir']."</td>
+                                <td>".$row['sueldo']."</td>
+                                <td>".$row['seguro']."</td>
                                 <td>".$row['estado']."</td>
-                                <td> <a data-toggle='tooltip' title='Habilitar' href='ruta.php?accion=HBL&id=".$row['idrutas']."' class='btn btn-primary'> <img src='img/check.png' width=34px /> </a> </td>
-                                <td> <a data-toggle='tooltip' title='Anular' href='ruta.php?accion=DLT&id=".$row['idrutas']."' class='btn btn-danger'> <img src='img/basura.png' width=34px /> </a></td>
+                                <td> <a data-toggle='tooltip' title='Habilitar' href='choferes.php?accion=HBL&id=".$row['idconductor']."' class='btn btn-primary'> <img src='img/check.png' width=34px /> </a> </td>
+                                <td> <a data-toggle='tooltip' title='Anular' href='choferes.php?accion=DLT&id=".$row['idconductor']."' class='btn btn-danger'> <img src='img/basura.png' width=34px /> </a></td>
                         ";
                         
                     }
