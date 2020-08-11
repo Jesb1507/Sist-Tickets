@@ -37,8 +37,8 @@
                     <th>Ruta</th>
                     <th>Hora</th>
                     <th>Precio</th>
-                    <th></th>
-                    <th></th>
+                    <th>Capacidad</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +51,7 @@
                                 <td>".$row['ruta']."</td>
                                 <td>".$row['hora']."</td>
                                 <td>".$row['precio']."</td>
+                                <td>".$row['capacidad']."/25</td>
                                 <td> <a data-toggle='tooltip' title='Comprar' href='ruta.php?idP=".$row['precio']."&idC=".$row['idrutas']."&rta=".$row['ruta']."&hrs=".$row['hora']."' class='btn btn-primary'> <img src='img/compra.png' width=26px /></a> </td>
                             </tr>
 
@@ -64,4 +65,4 @@
         </table>
 
     </div>
-</div> <!-- Fin del Panel -->
+</div>

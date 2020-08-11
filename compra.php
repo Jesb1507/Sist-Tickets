@@ -22,6 +22,7 @@
         $NombreT = $_POST['NombreT'];
         $NumeroT = $_POST['NumeroT'];
         $FechaT = $_POST['FechaT'];
+        $idrutas= $_SESSION['idruta'];
        
         $error = '';
         
@@ -39,10 +40,24 @@
 
             $puntos = $row2[5];
             $puntosUp = $puntos + 5;
-           
-            
+
             $Upoint = $mysqli->prepare("UPDATE `usuarios` SET `puntos`= :puntosUp WHERE `iduser`=:iduser");
             $Upoint->execute(array('puntosUp'=>$puntosUp, ':iduser'=>$iduser));
+
+ // -----------------------------------------------------------------------------------------------------------------------------------------------------           
+
+           
+            $query3=$mysqli->prepare('SELECT * FROM rutas WHERE idrutas = :idrutas');
+            $query3->execute(['idrutas' => $idrutas]);
+            $row3 = $query3->fetch(PDO::FETCH_NUM);
+
+            $capacidad = $row3[4];
+            $capacidadUp = $capacidad + 1;
+           
+            
+            $Ucapidad = $mysqli->prepare("UPDATE `rutas` SET `capacidad`= :capacidadUp WHERE `idrutas`=:idrutas");
+            $Ucapidad->execute(array('capacidadUp'=>$capacidadUp, ':idrutas'=>$idrutas));
+            
 
             header('location: ticket.php');
         }
@@ -56,11 +71,17 @@
     <meta charset="UTF-8">
     <title>Compra Ticket</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt3nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
     <script type="text/javascript">
         $(document).ready(function(){
             $('#date').mask('00/00');
+        });
+    </script>
+
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('#cardno').mask('0000-0000-0000-0000');
         });
     </script>
 </head>
@@ -79,7 +100,7 @@
                 <input type="text" placeholder="Nombre del titular" name="NombreT">
             </div>
             <div>
-                <input name="NumeroT" type="text" min="0" maxlength="16" placeholder="Numero de la tarjeta">
+                <input name="NumeroT" type="text" min="0" maxlength="16" placeholder="Numero de la tarjeta" id="cardno">
             </div>
             <div>
                 <input type="text" min="0" placeholder="Fecha expiración" maxlength="4" name="FechaT" id="date" title="MM/YY">

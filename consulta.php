@@ -1,25 +1,33 @@
-<?php
+<?php    
+    include('./database.php');
+    $time = date("H:i:s");
+    if ($time>='21:05:00') {
+        $sql="UPDATE `rutas` SET `capacidad`= '0' WHERE `estado`= 'A'";
+        return $result=$mysqli->query($sql);
+    }
+    
     function lista_idrutas(){		
         include('database.php');
         $time = date("H:i:s");
         $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time'";
         return $result=$mysqli->query($sql); 
     }
-
+ 
     
-    function lista_idrutasU(){		
-
+    function lista_idrutasU(){
+        $max=25;		
         if(isset($_POST['lruta'])){
             include('database.php'); 
+            
             $time = date("H:i:s");
             $ruta = $_POST['lruta'];
-            $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time' AND `ruta` = '$ruta'";
+            $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time' AND `ruta` = '$ruta' AND `capacidad` < '$max'";
             return $result=$mysqli->query($sql);
             header('location: horarios.php');
         }else{
             include('database.php'); 
             $time = date("H:i:s");
-            $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time'";
+            $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time' AND `capacidad` < '$max'";
             return $result=$mysqli->query($sql);
         }
     }
@@ -34,6 +42,14 @@
 		include('./database.php');	
 		$sql="SELECT * FROM conductores WHERE idconductor = '$id' ";
 		return $result=$mysqli->query($sql); 
-	}
+    }
+
+    function reporteTickets(){
+        include('./database.php');	
+        $time = date("yy/m/d 00:00:00");
+		$sql="SELECT * FROM tickets WHERE fecha >= '$time'";
+		return $result=$mysqli->query($sql); 
+
+    }
 ?>
 

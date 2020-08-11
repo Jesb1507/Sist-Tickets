@@ -2,7 +2,7 @@
 include('./database.php');
 date_default_timezone_set('America/Santo_Domingo');
 $time = date("d/m/yy H:i:s");
-$fecha= date("yy/m/d H:i:s");
+$fecha= date("d/m/yy H:i:s");
 
 $idruta=$_SESSION['idruta'];
 $IDuser=$_SESSION['IDuser'];
@@ -55,6 +55,7 @@ INSERT INTO `tickets`
         </footer>
     </div>
 
+    
 
 </body>
 </html>

@@ -53,8 +53,7 @@
                     <th>Id Ruta</th>
                     <th>Ruta</th>
                     <th>Hora</th>
-                    <th></th>
-                    <th></th>
+
                 </tr>
             </thead>
             <tbody>

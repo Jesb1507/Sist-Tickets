@@ -70,8 +70,7 @@
                     <th>Ruta</th>
                     <th>Hora</th>
                     <th>Estado</th>
-                    <th></th>
-                    <th></th>
+
                 </tr>
             </thead>
             <tbody>

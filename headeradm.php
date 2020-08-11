@@ -27,16 +27,21 @@
         <li class="nav-item active">
           <a class="nav-link" href="./estados_viajes.php">Horarios</a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="./reportes.php">Reportes <span class="sr-only">(current)</span></a>
+        </li>
       </ul>
-      <div class="dropdown" align="right">
-          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php echo $_SESSION['Nuser']; ?>
-          </a>
+
+          <div class="btn-group ">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <?php echo($_SESSION['Nuser'])?>
+          </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="./logout.php">Cerrar seasion</a>
+            <a class="dropdown-item text-center" href="./logout.php">Cerrar sesion</a>
           </div>
         </div>
     </div>
+  </nav>
   </header>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
