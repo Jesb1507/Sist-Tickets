@@ -16,7 +16,7 @@ jQuery(document).on('submit','#formlog',function(event){
             if(respuesta.tipo == '2'){
                 location.href = 'home.php';
             }else if(respuesta.tipo == '1'){
-                location.href = 'index.html'
+                location.href = 'index.php'
             }
         }else{
             $('.error').slideDown('slow');
