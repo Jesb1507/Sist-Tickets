@@ -6,4 +6,3 @@
   
   Jeferson Rodríguez 2018-1043
   
-  Juan Canahuate 2018-1004

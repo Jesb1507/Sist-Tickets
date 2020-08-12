@@ -24,12 +24,13 @@
             <a class="nav-link" href="./horariosX.php">Horarios</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item"><a class="btn" role="button" href="logreq.php">Iniciar sesion</a></li>
-            <li class="nav-item"><a class="btn" role="button" href="signup.php">Registrarse</a></li>
-          </ul>
-        </form>
+        <div class="px-2">
+          <a class="btn" role="button" href="logreq.php">INICIAR SESION</a>
+        </div>
+        <div class="px-2">
+          <a class="btn" role="button" href="signup.php">REGISTRARSE</a>
+        </div>
+    </div>
       </div>
   </div>
 </header>

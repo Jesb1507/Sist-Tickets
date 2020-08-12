@@ -44,8 +44,6 @@
             $Upoint = $mysqli->prepare("UPDATE `usuarios` SET `puntos`= :puntosUp WHERE `iduser`=:iduser");
             $Upoint->execute(array('puntosUp'=>$puntosUp, ':iduser'=>$iduser));
 
- // -----------------------------------------------------------------------------------------------------------------------------------------------------           
-
            
             $query3=$mysqli->prepare('SELECT * FROM rutas WHERE idrutas = :idrutas');
             $query3->execute(['idrutas' => $idrutas]);
@@ -76,11 +74,6 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('#date').mask('00/00');
-        });
-    </script>
-
-<script type="text/javascript">
-        $(document).ready(function(){
             $('#cardno').mask('0000-0000-0000-0000');
         });
     </script>
