@@ -4,18 +4,11 @@ date_default_timezone_set('America/Santo_Domingo');
 $time = date("d/m/yy H:i:s");
 $fecha= date("yy/m/d H:i:s");
 
-if(!isset($_SESSION['rol'])){
-    header('location: logreq.php');
-}else{
-    if($_SESSION['rol'] != 2){
-        header('location: logreq.php');
-    }
-}
-
-
 $idruta=$_SESSION['idruta'];
 $IDuser=$_SESSION['IDuser'];
 $precio=$_SESSION['precio'];
+
+
 $sql="
 INSERT INTO `tickets`
 (
@@ -30,6 +23,7 @@ INSERT INTO `tickets`
     '$IDuser',
     '$fecha',
     '$precio')";
+    
 
 ?>
 
@@ -68,3 +62,6 @@ INSERT INTO `tickets`
 
 </body>
 </html>
+<?php
+return $result=$mysqli->query($sql);
+?>

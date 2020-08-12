@@ -1,10 +1,10 @@
 <?php    
     include('./database.php');
     $time = date("H:i:s");
-    // if ($time>='21:05:00') {
-    //     $sql="UPDATE `rutas` SET `capacidad`= '0' WHERE `estado`= 'A'";
-    //     return $result=$mysqli->query($sql);
-    // }
+    if ($time>='21:05:00') {
+        $sql="UPDATE `rutas` SET `capacidad`= '0' WHERE `estado`= 'A'";
+        return $result=$mysqli->query($sql);
+    }
     
     function lista_idrutas(){		
         include('database.php');
