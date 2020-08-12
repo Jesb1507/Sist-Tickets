@@ -74,6 +74,8 @@
                     <th>Sueldo</th>
                     <th>Seguro</th>
                     <th>Estado</th>
+                    <th>Habilitar</th>
+                    <th>Inhabilitar</th>
                 </tr>
             </thead>
             <tbody>
@@ -91,7 +93,7 @@
                                 <td>".$row['seguro']."</td>
                                 <td>".$row['estado']."</td>
                                 <td> <a data-toggle='tooltip' title='Habilitar' href='choferes.php?accion=HBL&id=".$row['idconductor']."' class='btn btn-primary'> <img src='img/check.png' width=34px /> </a> </td>
-                                <td> <a data-toggle='tooltip' title='Anular' href='choferes.php?accion=DLT&id=".$row['idconductor']."' class='btn btn-danger'> <img src='img/basura.png' width=34px /> </a></td>
+                                <td> <a data-toggle='tooltip' title='Anular' href='choferes.php?accion=DLT&id=".$row['idconductor']."' class='btn btn-danger'> <img src='img/cancel.png' width=34px /> </a></td>
                         ";
                         
                     }

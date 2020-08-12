@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
     $password = hash('sha512', $password);
     $password2 = hash('sha512', $password2);
-    
+    $nivel_acceso =(2);
     $error = '';
     
     if (empty($email) or empty($nombre) or empty($apellido) or empty($password) or empty($password2)){
@@ -47,13 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
     
     if ($error == ''){
-        $statement = $conexion->prepare('INSERT INTO usuarios (iduser,nombre, apellido, email, password) VALUES (null, :nombre, :apellido, :email, :password)');
+        $statement = $conexion->prepare('INSERT INTO usuarios (iduser,nombre, apellido, email, password, nivel_acceso) VALUES (null, :nombre, :apellido, :email, :password, :nivel_acceso)');
         $statement->execute(array(
             
             ':email' => $email,
             ':nombre' => $nombre,
             ':apellido' => $apellido,
-            ':password' => $password
+            ':password' => $password,
+            ':nivel_acceso' => $nivel_acceso
             
         ));
         
