@@ -6,7 +6,7 @@ require('./database.php');
 class PDF extends FPDF
 {
     function Header(){
-        $time = date("d/m/yy");
+        $time = date("d/m/Y");
         $this->SetFont('Arial', 'B', 14);
         $this->Cell(60);
         
@@ -33,7 +33,7 @@ class PDF extends FPDF
 }
 
 
-$time = date("yy/m/d 00:00:00");
+$time = date("Y/m/d 00:00:00");
 $sql="SELECT * FROM tickets WHERE fecha >= '$time'";
 $resultado= $mysqli->query($sql);
 

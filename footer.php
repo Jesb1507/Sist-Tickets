@@ -1,5 +1,5 @@
 <footer class='footer'>
-  <div class="d-flex bd-highlight" style="background-color:rgb(47, 224, 186);">
+  <div class="d-flex bd-highlight" style="background-color:rgb(52, 73, 94 );">
     <div class="p-2 flex-fill bd-highlight">
       <ul align="left">
         <h3>Redes.</h3>

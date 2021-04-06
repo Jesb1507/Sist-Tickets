@@ -1,7 +1,7 @@
 <?php    
     include('./database.php');
     $time = date("H:i:s");
-    if ($time>='21:05:00') {
+    if ($time>='22:00:00') {
         $sql="UPDATE `rutas` SET `capacidad`= '0' WHERE `estado`= 'A'";
         return $result=$mysqli->query($sql);
     }
@@ -46,16 +46,17 @@
 
     function reporteTickets(){
         include('./database.php');	
-        $time = date("yy/m/d 00:00:00");
+        $time = date("Y/m/d 00:00:00");
 		$sql="SELECT * FROM tickets WHERE fecha >= '$time'";
 		return $result=$mysqli->query($sql); 
     }
 
     function UsuarioT($user){
         include('./database.php');
-        $time = date("yy/m/d 00:00:00");
+        $time = date("Y/m/d 00:00:00");
 		$sql="SELECT * FROM tickets WHERE fecha >= '$time' AND iduser = '$user'";
 		return $result=$mysqli->query($sql); 
     }
+
 ?>
 

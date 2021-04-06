@@ -1,8 +1,8 @@
 <?php include('./header.php');
 include('./database.php');
 date_default_timezone_set('America/Santo_Domingo');
-$time = date("d/m/yy H:i:s");
-$fecha= date("yy/m/d H:i:s");
+$time = date("d/m/Y H:i:s");
+$fecha = date("Y-m-d H:i:s");
 
 $idruta=$_SESSION['idruta'];
 $IDuser=$_SESSION['IDuser'];
@@ -19,8 +19,8 @@ INSERT INTO `tickets`
     `precio`
 ) VALUES (
     NULL,
-    '$idruta',
-    '$IDuser',
+    $idruta,
+    $IDuser,
     '$fecha',
     '$precio')";
     
@@ -35,13 +35,14 @@ INSERT INTO `tickets`
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket</title>
 </head>
-<body background="bg2.png">
+<body ">
     <div class="containerlog text-center">
         <div class="header2">
         <h3>LA CAMIONTA EXPRESS</h3>
         </div>
         <br><br><br>
-        <h5>Fecha: <?php echo $time; ?> </h5> 
+        <h5>Codigo de ruta: <?php echo $_SESSION['capa']; ?> </h5> 
+        <h5>Fecha: <?php echo $fecha; ?> </h5> 
         <h5>Codigo de ruta: <?php echo $_SESSION['idruta']; ?> </h5>
         <h5>Id Usuario: <?php echo $_SESSION['IDuser']; ?> </h5>
         <h5>Usuario: <?php echo $_SESSION['Nuser']; ?> </h5>

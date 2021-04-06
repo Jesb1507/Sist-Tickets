@@ -15,7 +15,7 @@
     if (isset($_GET['s'])){
         switch ($_GET['s']) {
             case 'successdlt':
-                $mensaje = 'Ruta inabilitada correctamente';
+                $mensaje = 'Ruta inhabilitada correctamente';
                 $color = 'success';
                 break;
             
@@ -69,6 +69,7 @@
                     <th>Id Ruta</th>
                     <th>Ruta</th>
                     <th>Hora</th>
+                    <th>Capacidad</th>
                     <th>Estado</th>
                     <th>Precio</th>
                     <th>Habilitar</th>
@@ -84,6 +85,7 @@
                                 <td>".$row['idrutas']."</td>
                                 <td>".$row['ruta']."</td>
                                 <td>".$row['hora']."</td>
+                                <td>".$row['capacidad']."</td>
                                 <td>".$row['estado']."</td>
                                 <td>".$row['precio']."</td>
                                 <td> <a data-toggle='tooltip' title='Habilitar' href='ruta.php?accion=HBL&id=".$row['idrutas']."' class='btn btn-primary'> <img src='img/check.png' width=34px /> </a> </td>

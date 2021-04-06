@@ -7,51 +7,77 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body background="bg2.png">
-<header style="background-color:rgb(47, 224, 186);">
-    <nav class="navbar navbar-expand-lg navbar-light bg-80deg,#14c414,#09bcf3 ">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">La Camionta Express</a>
-    
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./horariosX.php">Horarios</a>
-          </li>
-        </ul>
-        <div class="px-2">
-          <a class="btn" role="button" href="logreq.php">INICIAR SESION</a>
-        </div>
-        <div class="px-2">
-          <a class="btn" role="button" href="signup.php">REGISTRARSE</a>
-        </div>
+<body>
+<header class="header">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand"style="color:rgb(47, 224, 186)"  href="#">La Camionta Express</a>      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"style="color:rgb(47, 224, 186)"  href="./horariosX.php">Horarios</a>
+        </li>
+      </ul>
+    <div class="px-2">
+      <a class="btn"style="color:rgb(47, 224, 186)"  role="button" href="logreq.php">Iniciar Sesion</a>
     </div>
-      </div>
+    <div class="px-2">
+      <a class="btn" style="color:rgb(47, 224, 186)" role="button" href="signup.php">Registrarse</a>
+    </div>
+  </nav>    
   </div>
+  </div>
+</div>
 </header>
-<div class="container p-3">
-  <div class="d-flex bd-highlight" style="background-color:white;">
-    <div class="p-2 flex-fill bd-highlight"><img src="./Images/caribe_tours.jpg" class="img-fluid p-2" alt=""></div>
-    <div class="p-2 flex-fill bd-highlight"><p>Caribe Tours es uno de nuestros afiliados de excelencia, con los cuales compartimos sedes de transportes para ampliar nuestros servicios a lo largo de todo el pais, ya que gracias a nuestra afliciaciones caribe tours podemos llegar cada vez mas lejos en nuestra bella isla.</p></div>
-  </div>
+    <body>
+     <br>
+     <br>
+     <br>
+     <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./images/caribe_tours.jpg" class="d-block w-100" alt="bootstrap" 
+                                width="620px" height="450px">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./images/expreso_vegano.jpg" class="d-block w-100" alt="..." 
+                                width="620px" height="450px">
+                            </div>
+                            <div class="carousel-item">
+                                <a href="./images/quinto_patio.jpg" target="_blanck">
+                                    <img src="./images/quinto_patio.jpg" class="d-block w-100" alt="..." 
+                                        width="620px" height="450px">
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </body>
+</html>
 </div>
-<div class="container p-3">
-  <div class="d-flex bd-highlight" style="background-color:white;">
-    <div class="p-2 flex-fill bd-highlight"><p>Expreso Vegano es uno de nuestros afiliados de excelencia, con los cuales compartimos sedes de transportes para ampliar nuestros servicios a lo largo de todo el pais, ya que gracias a nuestra afliciaciones expreso vegano podemos llegar cada vez mas lejos en nuestra bella isla.</p></div>
-    <div class="p-2 flex-fill bd-highlight"><img src="./Images/expreso_vegano.jpg" class="img-fluid p-2" alt="" width="1080" height="720"></div>
-  </div>
-</div>
-<div class="container p-3">
-  <div class="d-flex bd-highlight" style="background-color:white;">
-    <div class="p-2 flex-fill bd-highlight"><img src="./Images/quinto_patio.jpg" class="img-fluid p-2" alt="" width="1080" height="720"></div>
-    <div class="p-2 flex-fill bd-highlight"><p>Quinto Patio es uno de nuestros afiliados de excelencia, con los cuales compartimos sedes de transportes para ampliar nuestros servicios a lo largo de todo el pais, ya que gracias a nuestra afliciaciones quinto patio podemos llegar cada vez mas lejos en nuestra bella isla.</p></div>
-  </div>
-</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include('./footer.php')?>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

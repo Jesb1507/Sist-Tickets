@@ -30,7 +30,7 @@
     <div class="panel-body">
         <br>
         <hr>
-        <table class="table table-striped" style="text-align: center;">
+        <table class="table table-striped" style="text-align: center;  ">
             <thead>
                 <tr>
                     <th>Id Ruta</th>
@@ -41,7 +41,7 @@
 
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 <?php
                     $query = lista_idrutasU();
                     while ($row = $query->fetch_assoc()) {
@@ -54,7 +54,7 @@
                                 <td>".$row['capacidad']."/25</td>
                                 <td> <a data-toggle='tooltip' title='Comprar' href='ruta.php?idP=".$row['precio']."&idC=".$row['idrutas']."&rta=".$row['ruta']."&hrs=".$row['hora']."' class='btn btn-primary'> <img src='img/compra.png' width=26px /></a> </td>
                             </tr>
-
+                            
                         ";
                     }
                 ?>
@@ -66,3 +66,8 @@
 
     </div>
 </div>
+<script type="text/javascript">
+  function actualizar(){location.reload(true);}
+      
+  setInterval("actualizar()",60000);
+</script>

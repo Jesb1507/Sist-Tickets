@@ -1,6 +1,6 @@
 <?php
 include('database.php');
-// INS | UDT | DLT
+
 
 $i = '';
 if (isset($_GET['accion'])) {
@@ -34,9 +34,9 @@ if ($i == 'HBL') {
     WHERE `idrutas` = '$codigo'";
 
     if ($mysqli->query($sql)) {
-        $msj ='successdlt';
+        $msj ='successhbl';
     } else {
-        $msj ='errordlt';
+        $msj ='errorhbl';
     }
 
     header("Location:./estados_viajes.php?s=".$msj);

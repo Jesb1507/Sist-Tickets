@@ -12,35 +12,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header style="background-color:rgb(47, 224, 186);">
+  <header class="header">
   <nav class="navbar navbar-expand-lg navbar-light bg-80deg,#14c414,#09bcf3 ">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="./home.php">La Camionta Express</a>
+    <a class="navbar-brand" style="color:rgb(47, 224, 186)" href="./home.php">La Camionta Express</a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="./estado_choferes.php">Conductores <span class="sr-only">(current)</span></a>
+          <a class="nav-link" style="color:rgb(47, 224, 186)" href="./estado_choferes.php">Conductores</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="./estados_viajes.php">Horarios</a>
+          <a class="nav-link" style="color:rgb(47, 224, 186)" href="./estados_viajes.php">Horarios</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="./reportes.php">Reportes <span class="sr-only">(current)</span></a>
+          <a class="nav-link" style="color:rgb(47, 224, 186)" href="./reportes.php">Reportes</a>
         </li>
       </ul>
 
-          <div class="btn-group ">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <?php echo($_SESSION['Nuser'])?>
-          </button>
+      <div class="dropdown" style="align:right">
+          <a class="btn dropdown-toggle" style="color:rgb(47, 224, 186)" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+            <?php echo $_SESSION['Nuser']; ?>
+          </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item text-center" href="./logout.php">Cerrar sesion</a>
+            <a class="dropdown-item" href="./logout.php">Cerrar sesion</a>
           </div>
         </div>
-    </div>
   </nav>
   </header>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

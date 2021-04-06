@@ -1,5 +1,8 @@
+
 <?php
     include('./header.php');
+
+
     try{
         $mysqli = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
     }catch(PDOException $prueba_error){
@@ -7,7 +10,7 @@
     }
     // include('./ruta.php');
 
-
+    
     if(!isset($_SESSION['rol'])){
         header('location: logreq.php');
     }else{
@@ -16,14 +19,17 @@
         }
     }
 
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        
+
+
         $iduser = $_SESSION['IDuser'];
         $NombreT = $_POST['NombreT'];
         $NumeroT = $_POST['NumeroT'];
         $FechaT = $_POST['FechaT'];
         $idrutas= $_SESSION['idruta'];
-       
+        
+
         $error = '';
         
         if (empty($FechaT) or empty($NombreT) or empty($NumeroT)){
@@ -48,28 +54,48 @@
             $query3=$mysqli->prepare('SELECT * FROM rutas WHERE idrutas = :idrutas');
             $query3->execute(['idrutas' => $idrutas]);
             $row3 = $query3->fetch(PDO::FETCH_NUM);
+            
 
-            $capacidad = $row3[4];
+            $capacidad = $row3[4]; 
             $capacidadUp = $capacidad + 1;
-           
+            $_SESSION['capa'] = $capacidadUp;
+
+            if ($capacidadUp>25) {
+                // echo '<script type="text/javascript">', 'alertify.alert('La CamiontaExpress', 'Ya se han agotado todos los asientos de este viaje', function(){ alertify.success('Ok'); });', '</script>';
+               
+                 
+          
+           }else {
+                $Ucapidad = $mysqli->prepare("UPDATE `rutas` SET `capacidad`= :capacidadUp WHERE `idrutas`=:idrutas");
+                $Ucapidad->execute(array('capacidadUp'=>$capacidadUp, ':idrutas'=>$idrutas));
+                
+                
+    
+                header('location: ticket.php');
+                
             
-            $Ucapidad = $mysqli->prepare("UPDATE `rutas` SET `capacidad`= :capacidadUp WHERE `idrutas`=:idrutas");
-            $Ucapidad->execute(array('capacidadUp'=>$capacidadUp, ':idrutas'=>$idrutas));
+            }
             
 
-            header('location: ticket.php');
         }
+        
     }
 
 ?>
 
+
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <title>Compra Ticket</title>
+    <title><?php echo $_SESSION['idruta']; ?></title>
+    <link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.css">
+	<link rel="stylesheet" type="text/css" href="alertifyjs/css/themes/default.css">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt3nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<script src="alertifyjs/alertify.js"></script>
     <link rel="stylesheet" href="./style.css">
     <script type="text/javascript">
         $(document).ready(function(){
@@ -78,16 +104,17 @@
         });
     </script>
 </head>
-<body background="bg2.png">
+<body>
 <div class="containerreg">
         <div class="header">
             <div class="text-center">
-                <h2>Compra Ticket</h2>
+                <h2>La CamiontaExpress</h2>
                 <h5>Codigo de ruta: <?php echo $_SESSION['idruta']; ?> </h5> 
                 <h5>Usuario: <?php echo $_SESSION['IDuser']; ?> </h5>
                 <h5>Precio: <?php echo $_SESSION['precio']; ?> </h5>
             </div>
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" id="formpago" class="form">
+
 
             <div class="user line-input">
                 <input type="text" placeholder="Nombre del titular" name="NombreT">
@@ -101,17 +128,20 @@
             <div>
                 <input type="text" min="0" maxlength="3" placeholder="Codigo CVC" name="Codigocvv" title="000">
             </div>
-            
+
+            <input type="submit" value="Comprar">      
+            </form> 
+
+
             <?php if(!empty($error)): ?>
-            <div class="text-center">
-                <?php echo $error; ?>
-            </div>
+            <script>
+                    alertify.alert('La CamiontaExpress', 'Por Favor Rellenar Todos los Campos', function(){ alertify.success('Ok'); });
+            </script>
+            
             <?php endif; ?>
 
-            <div class="text-center">
-                <input type="submit" value="Comprar">
-            </div>  
-        </form>
+
+        
     </div>
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -121,3 +151,17 @@
 </script>
 </body>
 </html>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    
+    $('#ejecutar').click(function(){
+        alertify.confirm('Eliminar datos', '¿Seguro que deseas eliminar?', function(){ alertify.success('Ok') }
+        , function(){ alertify.error('Cancel')});
+        //alertify.alert("te hace falta llenar mas campos, por favor");
+        //alertify.error("fallo el servidor :(");
+        //alertify.success("este es un mensaje de exito ");
+    });
+})
+</script>
