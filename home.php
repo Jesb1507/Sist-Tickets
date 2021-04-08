@@ -5,14 +5,13 @@
   }catch(PDOException $message_error){
   echo "Error: " . $prueba_error->getMessage();
   }
-    
+  
   $user = $_SESSION['IDuser'];
   $query = $mysqli->prepare('SELECT * FROM usuarios WHERE iduser = :iduser ');
   $query->execute(['iduser' => $user]);
   $row = $query->fetch(PDO::FETCH_NUM);
   $puntos = $row[5];
-    
-    
+
   if(!isset($_SESSION['rol'])){
   header('location: logreq.php');
   }else{
@@ -43,8 +42,8 @@
         while ($row = $query->fetch_assoc()) {
         echo"
         <tr>
-        <td>ticketID: ".$row['idfactura']."</td>
-        <td>rutaID: ".$row['idruta']."</td>
+        <td>Ticket: ".$row['idfactura']."</td>
+        <td> Ruta: ".$row['idruta']."</td><br>
         </tr>";
       }
       ?> </h5><br>
@@ -62,7 +61,11 @@
       <h5>1000 Puntos = 100% descuento.</h5><br>
     </div>
   </div>
-
+  <script>
+    function maxcap(){
+      alertify.alert('La CamiontaExpress', 'Ya se ha alcanzado el maximo de cupos en este viaje.', function(){ alertify.success('Ok'); });
+    }
+  </script>
 </div>
 <?php include('./footer.php')?>
 </body>

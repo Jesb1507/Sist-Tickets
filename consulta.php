@@ -18,17 +18,23 @@
         $max=25;		
         if(isset($_POST['lruta'])){
             include('database.php'); 
-            
             $time = date("H:i:s");
             $ruta = $_POST['lruta'];
-            $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time' AND `ruta` = '$ruta' AND `capacidad` < '$max'";
-            return $result=$mysqli->query($sql);
-            header('location: horarios.php');
+            if($ruta=="Todos"){
+                $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time' AND `capacidad` < '$max'";
+                return $result=$mysqli->query($sql);
+                header('location: horarios.php');
+            }else{
+                $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time' AND `ruta` = '$ruta' AND `capacidad` < '$max'";
+                return $result=$mysqli->query($sql);
+                header('location: horarios.php');
+            }
         }else{
             include('database.php'); 
             $time = date("H:i:s");
             $sql="SELECT * FROM `rutas` WHERE `estado`= 'A' AND `hora` >= '$time' AND `capacidad` < '$max'";
             return $result=$mysqli->query($sql);
+            header('location: horarios.php');
         }
     }
     function lista_choferes(){

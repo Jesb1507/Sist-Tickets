@@ -35,22 +35,22 @@ INSERT INTO `tickets`
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticket</title>
 </head>
-<body ">
+<body>
     <div class="containerlog text-center">
-        <div class="header2">
+     
+        <div class="header">
         <h3>LA CAMIONTA EXPRESS</h3>
         </div>
-        <br><br><br>
-        <h5>Codigo de ruta: <?php echo $_SESSION['capa']; ?> </h5> 
+        <div class="header">
         <h5>Fecha: <?php echo $fecha; ?> </h5> 
         <h5>Codigo de ruta: <?php echo $_SESSION['idruta']; ?> </h5>
         <h5>Id Usuario: <?php echo $_SESSION['IDuser']; ?> </h5>
         <h5>Usuario: <?php echo $_SESSION['Nuser']; ?> </h5>
         <h5>Ruta: <?php echo $_SESSION['ruta']?>   <?php echo $_SESSION['hora']?></h5> 
         <h5>Precio: <?php echo $_SESSION['precio']; ?> </h5>
-        <br><br>
+        </div>
         <footer>
-            <div class="header2" >
+            <div class="header">
                 <div class="p-2 flex-fill bd-highlight bg-danger" >
                     <h3 align="center">¡Aviso!</h3>
                     <p align="center">Los tickets no tienen reembolso, favor estar en la empresa de 5 a 10 minutos antes de la hora de su viaje, gracias.</p>

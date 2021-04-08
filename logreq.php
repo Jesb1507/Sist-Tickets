@@ -113,6 +113,7 @@
       <p> <?= $message ?></p>
     <?php endif; ?>
     <div class= "containerlog">
+      <div class="header">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form" id="formlog">
             <div class="text-center">
                 <h3>Iniciar Sesion</h3>

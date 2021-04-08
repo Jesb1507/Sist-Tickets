@@ -41,20 +41,19 @@
                 <h2>Camionta Express</h2>
             </div>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form">
-
             <div class="user line-input">
-                <input type="text" placeholder="Nombre" name="nombre">
+                <input type="text" style="color:rgb(47, 224, 186)" placeholder="Nombre" name="nombre">
             </div>
             
             <div>
-                <input type="text" placeholder="Apellido" name="apellido">
+                <input type="text" style="color:rgb(47, 224, 186)" placeholder="Apellido" name="apellido">
             </div>
             <div>
-                <input type="text" placeholder="Correo" name="email">
+                <input type="text" style="color:rgb(47, 224, 186)" placeholder="Correo" name="email">
             </div>
             <div class="password line-input">
-                <input type="password" name="password" placeholder="Ingrese la contraseña">
-                <input type="password" name="password2" placeholder="Confirme la contraseña">
+                <input type="password" style="color:rgb(47, 224, 186)" name="password" placeholder="Ingrese la contraseña">
+                <input type="password" style="color:rgb(47, 224, 186)" name="password2" placeholder="Confirme la contraseña">
             </div>
             
             <?php if(!empty($error)): ?>
@@ -64,10 +63,8 @@
             <?php endif; ?>
 
             <div class="text-center">
-                <input type="submit" value="Registrarse">
+                <input type="submit" style="color:rgb(47, 224, 186)" value="Registrarse">
             </div>           
-
-            
         </form>
     </div>
     

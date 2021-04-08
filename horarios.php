@@ -22,6 +22,7 @@
             </p>
         </form>
         <datalist id="listruta">
+            <option value="Todos">
             <option value="La Vega-Santiago de los caballeros">
             <option value="La Vega-Salcedo">
             <option value="La Vega-San Pedro de Macoris">
@@ -38,7 +39,6 @@
                     <th>Hora</th>
                     <th>Precio</th>
                     <th>Capacidad</th>
-
                 </tr>
             </thead>
             <tbody >
@@ -50,7 +50,7 @@
                                 <td>".$row['idrutas']."</td>
                                 <td>".$row['ruta']."</td>
                                 <td>".$row['hora']."</td>
-                                <td>".$row['precio']."</td>
+                                <td>".$row['precio']."$</td>
                                 <td>".$row['capacidad']."/25</td>
                                 <td> <a data-toggle='tooltip' title='Comprar' href='ruta.php?idP=".$row['precio']."&idC=".$row['idrutas']."&rta=".$row['ruta']."&hrs=".$row['hora']."' class='btn btn-primary'> <img src='img/compra.png' width=26px /></a> </td>
                             </tr>

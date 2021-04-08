@@ -1,15 +1,24 @@
-
+<html>
+    <script type="text/javascript">
+        function maxcap(){
+        var mensaje = confirm("Lo sentimos, este viaje ya ha alcanzado su capacidad maxima");
+        if (mensaje){
+            window.location="horarios.php";  
+        }
+        else {
+            window.location="horarios.php"; 
+        }
+        }
+    </script>
+</html>
 <?php
     include('./header.php');
-
 
     try{
         $mysqli = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
     }catch(PDOException $prueba_error){
         echo "Error: " . $prueba_error->getMessage();
     }
-    // include('./ruta.php');
-
     
     if(!isset($_SESSION['rol'])){
         header('location: logreq.php');
@@ -19,7 +28,7 @@
         }
     }
 
-    
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
@@ -29,11 +38,11 @@
         $FechaT = $_POST['FechaT'];
         $idrutas= $_SESSION['idruta'];
         
+        
 
         $error = '';
         
         if (empty($FechaT) or empty($NombreT) or empty($NumeroT)){
-            
             $error .= '<i>Favor de rellenar todos los campos</i>';
         }
         if($error == ''){
@@ -58,21 +67,13 @@
 
             $capacidad = $row3[4]; 
             $capacidadUp = $capacidad + 1;
-            $_SESSION['capa'] = $capacidadUp;
 
             if ($capacidadUp>25) {
-                // echo '<script type="text/javascript">', 'alertify.alert('La CamiontaExpress', 'Ya se han agotado todos los asientos de este viaje', function(){ alertify.success('Ok'); });', '</script>';
-               
-                 
-          
-           }else {
+                echo '<script type="text/javascript">maxcap();</script>'; 
+            }else {
                 $Ucapidad = $mysqli->prepare("UPDATE `rutas` SET `capacidad`= :capacidadUp WHERE `idrutas`=:idrutas");
                 $Ucapidad->execute(array('capacidadUp'=>$capacidadUp, ':idrutas'=>$idrutas));
-                
-                
-    
-                header('location: ticket.php');
-                
+                header('location: ticket.php');  
             
             }
             
@@ -83,12 +84,9 @@
 
 ?>
 
-
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title><?php echo $_SESSION['idruta']; ?></title>
     <link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.css">
@@ -111,13 +109,12 @@
                 <h2>La CamiontaExpress</h2>
                 <h5>Codigo de ruta: <?php echo $_SESSION['idruta']; ?> </h5> 
                 <h5>Usuario: <?php echo $_SESSION['IDuser']; ?> </h5>
-                <h5>Precio: <?php echo $_SESSION['precio']; ?> </h5>
+                <h5>Precio: <?php echo $_SESSION['precio']; ?>$ </h5>
             </div>
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" id="formpago" class="form">
 
-
             <div class="user line-input">
-                <input type="text" placeholder="Nombre del titular" name="NombreT">
+                <input type="text" min="0" maxlength="20" placeholder="Nombre del titular" name="NombreT">
             </div>
             <div>
                 <input name="NumeroT" type="text" min="0" maxlength="16" placeholder="Numero de la tarjeta" id="cardno">
@@ -129,18 +126,15 @@
                 <input type="text" min="0" maxlength="3" placeholder="Codigo CVC" name="Codigocvv" title="000">
             </div>
 
-            <input type="submit" value="Comprar">      
-            </form> 
+            <input type="submit" value="Comprar"> 
+            <div id="paypal-button-container" type="submit"></div>
+        </form>
 
-
-            <?php if(!empty($error)): ?>
+        <?php if(!empty($error)): ?>
             <script>
-                    alertify.alert('La CamiontaExpress', 'Por Favor Rellenar Todos los Campos', function(){ alertify.success('Ok'); });
+                alertify.alert('La CamiontaExpress', 'Por Favor Rellenar Todos los Campos', function(){ alertify.success('Ok'); });
             </script>
-            
-            <?php endif; ?>
-
-
+        <?php endif; ?>
         
     </div>
     
@@ -148,20 +142,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-</script>
+
 </body>
 </html>
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-    
-    $('#ejecutar').click(function(){
-        alertify.confirm('Eliminar datos', '¿Seguro que deseas eliminar?', function(){ alertify.success('Ok') }
-        , function(){ alertify.error('Cancel')});
-        //alertify.alert("te hace falta llenar mas campos, por favor");
-        //alertify.error("fallo el servidor :(");
-        //alertify.success("este es un mensaje de exito ");
-    });
-})
-</script>
