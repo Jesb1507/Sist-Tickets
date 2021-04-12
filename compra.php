@@ -31,13 +31,13 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-
+        
         $iduser = $_SESSION['IDuser'];
         $NombreT = $_POST['NombreT'];
         $NumeroT = $_POST['NumeroT'];
         $FechaT = $_POST['FechaT'];
         $idrutas= $_SESSION['idruta'];
-        
+        $precio=$_SESSION['precio'];
         
 
         $error = '';
@@ -71,6 +71,8 @@
             if ($capacidadUp>25) {
                 echo '<script type="text/javascript">maxcap();</script>'; 
             }else {
+                $fecha = date("Y-m-d H:i:s");
+                $sql= "INSERT INTO `tickets`(`idfactura`,`idruta`,`iduser`,`fecha`,`precio`) VALUES (NULL, $idruta, $IDuser, '$fecha', '$precio')";
                 $Ucapidad = $mysqli->prepare("UPDATE `rutas` SET `capacidad`= :capacidadUp WHERE `idrutas`=:idrutas");
                 $Ucapidad->execute(array('capacidadUp'=>$capacidadUp, ':idrutas'=>$idrutas));
                 header('location: ticket.php');  

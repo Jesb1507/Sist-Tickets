@@ -29,10 +29,10 @@
         </li>
       </ul>
     <div class="px-2">
-      <a class="btn"style="color:rgb(47, 224, 186)"  role="button" href="logreq.php">Registrarse</a>
+      <a class="btn"style="color:rgb(47, 224, 186)"  role="button" href="signup.php">Registrarse</a>
     </div>
     <div class="px-2">
-      <a class="btn" style="color:rgb(47, 224, 186)" role="button" href="signup.php">Iniciar Sesion</a>
+      <a class="btn" style="color:rgb(47, 224, 186)" role="button" href="logreq.php">Iniciar Sesion</a>
     </div>
   </nav>    
   </div>

@@ -21,9 +21,7 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" style="color:rgb(47, 224, 186)" href="./estado_choferes.php">Conductores</a>
-        </li>
+
         <li class="nav-item active">
           <a class="nav-link" style="color:rgb(47, 224, 186)" href="./estados_viajes.php">Horarios</a>
         </li>
