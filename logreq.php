@@ -30,37 +30,23 @@
     }
 
     if(isset($_POST['email']) && isset($_POST['password'])){
-        
         $email = $_POST['email'];
         $password = $_POST['password'];
         $password = hash('sha512', $password);
-        
-        $error = '';            
-        $error2='';
-        if (empty($email) or empty($password)){
-          $error .= '<i>Favor de rellenar todos los campos</i>';
-        }
 
-        if($error==''){
-          
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $password = hash('sha512', $password);
-          
         $query = $conexion->prepare('SELECT * FROM usuarios WHERE email = :email AND password = :password');
         $query->execute(['email' => $email, 'password' => $password]);
 
         $row = $query->fetch(PDO::FETCH_NUM);
 
         $Nuser='';
-        
+
         if($row == true){
             
             $rol = $row[6];
             $Nuser = $row[1];
             $IDuser = $row[0];
 
-            
             $_SESSION['IDuser'] = $IDuser;
             $_SESSION['Nuser'] = $Nuser;
             $_SESSION['rol'] = $rol;
@@ -75,12 +61,17 @@
 
                 default:
             }
-          }else{
-            $error2='<i>La contraseña o el correo son incorrectos</i>';
+        }else{
+            // no existe el usuario
+            // echo "Nombre de usuario o contraseña incorrecto";
+            echo'<div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <span>Nombre de usuario o contraseña incorrecto</span>
+            </div>';
         }
+        
 
-        }
-      }
+    }
 
 ?>
 
@@ -89,10 +80,7 @@
   <head>
     <meta charset="utf-8">
     <title>Iniciar Sesion</title>
-    <link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.css">
-	  <link rel="stylesheet" type="text/css" href="alertifyjs/css/themes/default.css">  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="alertifyjs/alertify.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <header class="header">
@@ -110,7 +98,7 @@
         </li>
       </ul>
     <div class="px-2">
-      <a class="btn"style="color:rgb(47, 224, 186)"  role="button" href="inicio.php">Inicio</a>
+      <a class="btn"style="color:rgb(47, 224, 186)"  role="button" href="logreq.php">Inicio</a>
     </div>
     <div class="px-2">
       <a class="btn" style="color:rgb(47, 224, 186)" role="button" href="signup.php">Registrarse</a>
@@ -134,26 +122,16 @@
                   <input type="password"  style="border-bottom:5px solid #008080;"  placeholder="Contraseña" name="password" id="password">
               </div>
     
-              
-
+              <?php if(!empty($error)): ?>
+              <div class="text-center">
+                  <?php echo $error; ?>
+              </div>
+              <?php endif; ?>
               <div class="text-center">
                 <input type="submit" style="border:2px solid #008080;" class="botonlg" value="Entrar">
               </div>
             </div>
           </form>
-
-          <?php if(!empty($error2)): ?> 
-              <script>
-                alertify.alert('La CamiontaExpress', 'La contraseña o el correo son incorrectos', function(){ alertify.success('Ok'); });
-              </script>
-            <?php endif; ?>      
-
-            <?php if(!empty($error)): ?>  
-              <script>
-                alertify.alert('La CamiontaExpress', 'Por Favor Rellenar Todos los Campos', function(){ alertify.success('Ok'); });
-              </script>
-            <?php endif; ?>
-
     </div>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
