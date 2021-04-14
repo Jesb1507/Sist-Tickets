@@ -54,10 +54,18 @@
     if ($capacidadUp>25) {
         echo '<script type="text/javascript">maxcap();</script>'; 
     }else {
+        $timet = date("Y/m/d H:i:s");
+        $_SESSION['fecha']=$timet;
+        $idruta=$_SESSION['idruta'];
+        $IDuser=$_SESSION['IDuser'];
+        $precio=$_SESSION['precio'];
         $fecha = date("Y-m-d H:i:s");
-        $sql= "INSERT INTO `tickets`(`idfactura`,`idruta`,`iduser`,`fecha`,`precio`) VALUES (NULL, $idruta, $IDuser, '$fecha', '$precio')";
+        $sql= "INSERT INTO `tickets`( `idfactura`,`idruta`,`iduser`,`fecha`,`precio`) VALUES (NULL, $idruta, $IDuser, '$timet', '$precio')";
+        $result=$mysqli->query($sql);
         $Ucapidad = $mysqli->prepare("UPDATE `rutas` SET `capacidad`= :capacidadUp WHERE `idrutas`=:idrutas");
         $Ucapidad->execute(array('capacidadUp'=>$capacidadUp, ':idrutas'=>$idrutas));
         header('location: ticket.php');                 
     }
+
+    
 ?>

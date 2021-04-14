@@ -1,5 +1,5 @@
 <?php include('./header.php');
-     try{
+    try{
         $conexion = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
         }catch(PDOException $message_error){
             echo "Error: " . $prueba_error->getMessage();
@@ -7,24 +7,10 @@
     
 date_default_timezone_set('America/Santo_Domingo');
 $time = date("d/m/Y H:i:s");
-$fecha = date("Y-m-d H:i:s");
-
-$idruta=$_SESSION['idruta'];
-$IDuser=$_SESSION['IDuser'];
-$precio=$_SESSION['precio'];
 
 
 
 
-$idt = $conexion->prepare('SELECT * FROM tickets WHERE idruta= :idruta AND iduser= :IDuser AND fecha = :fecha');
-$idt->execute([ 'idruta' => $idruta, 'IDuser' => $IDuser, 'fecha' => $fecha ]);
-$row = $idt->fetch(PDO::FETCH_NUM);
-
-if($row == true){
-$idticket= $row[0];
-$_SESSION['idticket'] = $idticket;
-
-}
 
 ?>
 
@@ -44,7 +30,19 @@ $_SESSION['idticket'] = $idticket;
 </head>
 <body>
 
+<?php
 
+ 
+$user = $_SESSION['IDuser'];
+$idruta=$_SESSION['idruta'];
+$IDuser=$_SESSION['IDuser'];
+$precio=$_SESSION['precio'];
+$fecha= $_SESSION['fecha'];
+
+
+
+
+      ?> 
 
 <div class="containerlog">
         
@@ -53,7 +51,7 @@ $_SESSION['idticket'] = $idticket;
         </div>
         <div class="header">
             <h5>Fecha: <?php echo $fecha; ?> </h5>
-            <h5>Id Ticket: <?php echo $_SESSION['idticket']; ?> </h5> 
+
             <h5>Codigo de ruta: <?php echo $_SESSION['idruta']; ?> </h5>
             <h5>Id Usuario: <?php echo $_SESSION['IDuser']; ?> </h5>
             <h5>Usuario: <?php echo $_SESSION['Nuser']; ?> </h5>
@@ -62,7 +60,7 @@ $_SESSION['idticket'] = $idticket;
         <br>
         <div align="center" id="qrcode"></div>
             <script type="text/javascript">
-                new QRCode(document.getElementById("qrcode"), '(<?php echo 'Codigo de ticket ',$_SESSION['idticket'], 'Ruta: ', $_SESSION['ruta']; ?>)' );
+                new QRCode(document.getElementById("qrcode"), '(<?php echo 'Ruta: ', $_SESSION['ruta'],'-',$_SESSION['hora']; ?>)' );
                 
             </script>    
         </div>

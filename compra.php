@@ -31,14 +31,13 @@
     }
 
     $usatord = 60;
-    $montousa = $_SESSION['precio'] / $usatord;
+    $montousa = 75/ $usatord;
 
 
-<<<<<<< HEAD
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-=======
->>>>>>> parent of e3c52fb (Revert "ticket")
+
         
         $iduser = $_SESSION['IDuser'];
         $NombreT = $_POST['NombreT'];
@@ -123,24 +122,7 @@
                 <h5>Precio: <?php echo $montousa * $usatord; ?>$ </h5>
             </div>
         </div>
-        <div class="header">
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" id="formpago" class="form">
 
-            <div class="user line-input">
-                <input type="text" min="0" maxlength="20" placeholder="Nombre del titular" name="NombreT">
-            </div>
-            <div>
-                <input name="NumeroT" type="text" min="0" maxlength="16" placeholder="Numero de la tarjeta" id="cardno">
-            </div>
-            <div>
-                <input type="text" min="0" placeholder="Fecha expiración" maxlength="4" name="FechaT" id="date" title="MM/YY">
-            </div>
-            <div>
-                <input type="text" min="0" maxlength="3" placeholder="Codigo CVC" name="Codigocvv" title="000">
-            </div>
-            <input type="submit" style="color:rgb(47, 224, 186)" value="Comprar"> 
-        </div>
-        </form>
         <div id="smart-button-container">
         <div style="text-align: center;">
         <div id="paypal-button-container"></div>
@@ -148,7 +130,7 @@
         </div>
         <script src="https://www.paypal.com/sdk/js?client-id=AU9bgZD2AM91o0go7-Z3i-JeXnRvgCURbvAy6sqvz0qLlG_R4PWCqpEtyGV3qQoiUUOda8lZlOIJ-orE&currency=USD" data-sdk-integration-source="button-factory"></script>
         <script>
-            var monto = <?php echo $_SESSION['precio'] / $usatord; ?>;
+            var monto = <?php echo 75 / $usatord; ?>;
             function initPayPalButton(){
                 paypal.Buttons({
                     style: {

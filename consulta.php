@@ -70,5 +70,6 @@
 		return $result=$mysqli->query($sql); 
     }
 
+    
 ?>
 
