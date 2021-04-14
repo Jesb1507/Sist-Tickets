@@ -18,11 +18,11 @@
     if(isset($_SESSION['rol'])){
         switch($_SESSION['rol']){
             case 1:
-                header('location: estados_viajes.php');
+              header('location: estados_viajes.php');
             break;
 
             case 2:
-            header('location: home.php');
+              header('location: home.php');
             break;
 
             default:

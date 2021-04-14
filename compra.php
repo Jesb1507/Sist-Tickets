@@ -10,9 +10,11 @@
         }
         }
     </script>
+
 </html>
 <?php
     include('./header.php');
+    header('enviar-email.php');
 
     try{
         $mysqli = new PDO('mysql:host=localhost;dbname=gtdatabase', 'root', '');
@@ -28,16 +30,19 @@
         }
     }
 
+    $usatord = 60;
+    $montousa = $_SESSION['precio'] / $usatord;
+
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-
+        
         $iduser = $_SESSION['IDuser'];
         $NombreT = $_POST['NombreT'];
         $NumeroT = $_POST['NumeroT'];
         $FechaT = $_POST['FechaT'];
         $idrutas= $_SESSION['idruta'];
-        
+        $precio=$_SESSION['precio'];
         
 
         $error = '';
@@ -71,6 +76,8 @@
             if ($capacidadUp>25) {
                 echo '<script type="text/javascript">maxcap();</script>'; 
             }else {
+                $fecha = date("Y-m-d H:i:s");
+                $sql= "INSERT INTO `tickets`(`idfactura`,`idruta`,`iduser`,`fecha`,`precio`) VALUES (NULL, $idruta, $IDuser, '$fecha', '$precio')";
                 $Ucapidad = $mysqli->prepare("UPDATE `rutas` SET `capacidad`= :capacidadUp WHERE `idrutas`=:idrutas");
                 $Ucapidad->execute(array('capacidadUp'=>$capacidadUp, ':idrutas'=>$idrutas));
                 header('location: ticket.php');  
@@ -104,13 +111,16 @@
 </head>
 <body>
 <div class="containerreg">
+    <br><br><br><br><br><br><br>
         <div class="header">
             <div class="text-center">
                 <h2>La CamiontaExpress</h2>
-                <h5>Codigo de ruta: <?php echo $_SESSION['idruta']; ?> </h5> 
+                <h5>Codigo de ruta: <?php echo $_SESSION['IDuser']; ?> </h5> 
                 <h5>Usuario: <?php echo $_SESSION['IDuser']; ?> </h5>
-                <h5>Precio: <?php echo $_SESSION['precio']; ?>$ </h5>
+                <h5>Precio: <?php echo $montousa * $usatord; ?>$ </h5>
             </div>
+        </div>
+        <div class="header">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" id="formpago" class="form">
 
             <div class="user line-input">
@@ -125,10 +135,48 @@
             <div>
                 <input type="text" min="0" maxlength="3" placeholder="Codigo CVC" name="Codigocvv" title="000">
             </div>
-
-            <input type="submit" value="Comprar"> 
-            <div id="paypal-button-container" type="submit"></div>
+            <input type="submit" style="color:rgb(47, 224, 186)" value="Comprar"> 
+        </div>
         </form>
+        <div id="smart-button-container">
+        <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+        </div>
+        </div>
+        <script src="https://www.paypal.com/sdk/js?client-id=AU9bgZD2AM91o0go7-Z3i-JeXnRvgCURbvAy6sqvz0qLlG_R4PWCqpEtyGV3qQoiUUOda8lZlOIJ-orE&currency=USD" data-sdk-integration-source="button-factory"></script>
+        <script>
+            var monto = <?php echo $_SESSION['precio'] / $usatord; ?>;
+            function initPayPalButton(){
+                paypal.Buttons({
+                    style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'buynow',
+                    
+                    },
+
+                    createOrder: function(data, actions) {
+                    return actions.order.create({
+
+                        purchase_units: [{"amount":{"currency_code":"USD","value": monto}}]
+                    });
+                    },
+
+                    onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                        window.location="pagoefect.php";  
+                    });
+                    },
+
+                    onError: function(err) {
+                    console.log(err);
+                    }
+                }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+        </script>
 
         <?php if(!empty($error)): ?>
             <script>
@@ -137,11 +185,15 @@
         <?php endif; ?>
         
     </div>
-    
+        
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-
 </body>
+    <script>
+        window.addEventListener("beforeunload",function(){
+            alert('Hola');
+        });
+    </script>
 </html>

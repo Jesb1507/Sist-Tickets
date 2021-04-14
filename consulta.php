@@ -1,11 +1,17 @@
 <?php    
     include('./database.php');
     $time = date("H:i:s");
+    $timeenvi = date("H:i");
+
     if ($time>='22:00:00') {
         $sql="UPDATE `rutas` SET `capacidad`= '0' WHERE `estado`= 'A'";
         return $result=$mysqli->query($sql);
     }
-    
+
+    // if ($timeenvi=='23:53') {
+    //     header('enviar-email.php');
+    // }
+
     function lista_idrutas(){		
         include('database.php');
         $time = date("H:i:s");

@@ -30,6 +30,9 @@
         <li class="nav-item active">
           <a class="nav-link" style="color:rgb(47, 224, 186)" href="./reportes.php">Reportes</a>
         </li>
+        <li>
+          <a class="nav-link"style="color:rgb(47, 224, 186)"  href="./enviar-email.php">Enviar recordatorio</a>
+        </li>
       </ul>
 
       <div class="dropdown" style="align:right">

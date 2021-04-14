@@ -52,7 +52,7 @@
                                 <td>".$row['hora']."</td>
                                 <td>".$row['precio']."$</td>
                                 <td>".$row['capacidad']."/25</td>
-                                <td> <a data-toggle='tooltip' title='Comprar' href='ruta.php?idP=".$row['precio']."&idC=".$row['idrutas']."&rta=".$row['ruta']."&hrs=".$row['hora']."' class='btn btn-primary'> <img src='img/compra.png' width=26px /></a> </td>
+                                <td> <a data-toggle='tooltip' title='Comprar' href='ruta.php?idP=".$row['precio']."&idC=".$row['idrutas']."&rta=".$row['ruta']."&hrs=".$row['hora']."&sp=1"."' class='btn btn-primary'> <img src='img/compra.png' width=26px /></a> </td>
                             </tr>
                             
                         ";

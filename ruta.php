@@ -1,3 +1,16 @@
+<html>
+    <script type="text/javascript">
+        function maxcap(){
+        var mensaje = confirm("Lo sentimos, este viaje ya ha alcanzado su capacidad maxima");
+        if (mensaje){
+            window.location="horarios.php";  
+        }
+        else {
+            window.location="horarios.php"; 
+        }
+        }
+    </script>
+</html>
 <?php
 include('database.php');
 
@@ -69,6 +82,7 @@ if (isset($_GET['hrs'])) {
     $_SESSION['hora'] = $hora;
     header("Location:./compra.php");
 }
+
 
 ?>
 
