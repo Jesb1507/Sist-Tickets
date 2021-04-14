@@ -1,11 +1,11 @@
 <?php
     // include('./database.php');
 
-    // function listaemail(){
-    //     include('./database.php');
-    //     $sql="SELECT * FROM 'usuarios'";
-    //     return $result=$mysqli->query($sql);
-    // }
+    function listaemail(){
+        include('./database.php');
+        $sql="SELECT * FROM `usuarios`";
+        return $result=$mysqli->query($sql);
+    }
     
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -32,18 +32,21 @@
     //Recipients
     $mail->setFrom('lacamiontaexpress@gmail.com', 'LaCamiontaExpress');
 
-    // $query = listaemail();
-    //  while ($row = $query->fetch_assoc()) {
-    //     $emailr = $row['email'];
-    $mail->addAddress('jeffersonrz2000@gmail.com');
-    $mail->addAddress('joeenmanuel.suarez@gmail.com');     //Add a recipient
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = '¿Compraste tu ticket?';
-    $mail->Body = '¡Recuerda comprar tu ticket de hoy en LaCamiontaExpress!';
-    $mail->send();
-    header('estados_viajes.php');
-    // }
-    // }
+    $query = listaemail();
+    while ($row = $query->fetch_assoc()) {
+        $emailr = $row['email'];
+        $mail->addAddress($emailr);     //Add a recipient
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = '¿Compraste tu ticket?';
+        $mail->Body = '¡Recuerda comprar tu ticket de hoy en LaCamiontaExpress!';
+        $mail->send();
+
+        if($mail->send()){
+            continue;
+        }
+        
+    }
+    header('location:estados_viajes.php');
     
 ?>

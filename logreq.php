@@ -140,15 +140,15 @@
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form" id="formlog">
             <div class="text-center">
                 <h3>Iniciar Sesion</h3>
-                  <input type="text"  style="border-bottom:5px solid #008080;"  placeholder="Correo" name="email" id="email">
+                  <input type="text"  style="color:rgb(47, 224, 186);"  placeholder="Correo" name="email" id="email">
               <div class="password line-input">
-                  <input type="password"  style="border-bottom:5px solid #008080;"  placeholder="Contraseña" name="password" id="password">
+                  <input type="password"  style="color:rgb(47, 224, 186);"  placeholder="Contraseña" name="password" id="password">
               </div>
     
               
 
               <div class="text-center">
-                <input type="submit" style="border:2px solid #008080;" class="botonlg" value="Entrar">
+                <input type="submit" style="color:rgb(47, 224, 186);" class="botonlg" value="Entrar">
               </div>
             </div>
           </form>
