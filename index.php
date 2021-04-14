@@ -31,11 +31,7 @@
 </div>
 </header>
     <body>
-     <br>
-     <br>
-     <br>
-     <br>
-        <div class="container">
+        <div class="container p-5" style="max-width: 100%; background-color:rgb(52, 73, 94 ); ">
             <div class="row">
                 <div class="col-sm-12">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -49,8 +45,8 @@
                                 width="620px" height="450px">
                             </div>
                             <div class="carousel-item">
-                                <a href="./images/quinto_patio.jpg" target="_blanck">
-                                    <img src="./images/quinto_patio.jpg" class="d-block w-100" alt="..." 
+                                <a href="./images/busdm.jpg" target="_blanck">
+                                    <img src="./images/busdm.jpg" class="d-block w-100" alt="..." 
                                         width="620px" height="450px">
                                 </a>
                                 
@@ -72,89 +68,91 @@
 </html>
 </div>
 
-<div class="d-flex flex-row mb-5">
-  <div class="container p-3">
-    <div>
-
-
-    </div>
+<div class="container" style="max-width: 80%;" >
+  <div class="container p-3" style="max-width: 100%">
     <br>
-
-  <div class="card mb-3" style="max-width: 900px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-    <br>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.288275501356!2d-70.53268318468561!3d19.226264252227107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb02debbccd3155%3A0x170721bc04d93cbe!2sExpreso%20Quinto%20Patio!5e0!3m2!1sen!2sdo!4v1618426555553!5m2!1sen!2sdo" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-      <img src="./Images/qp.jpeg" width="370" height="300" style="border:0;">
-        <h5 class="card-title">Quinto Patio La Vega</h5>
-        
+  <div class='row'>
+    <div class="col-sm-8">
+      <div class="card mb-3" style="max-width: 900px; background-color:rgb(52, 73, 94 );">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.288275501356!2d-70.53268318468561!3d19.226264252227107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb02debbccd3155%3A0x170721bc04d93cbe!2sExpreso%20Quinto%20Patio!5e0!3m2!1sen!2sdo!4v1618426555553!5m2!1sen!2sdo" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <h5 class="card-title p-1" style='color:white;'>Ubicación</h5>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body pl-5">
+              <img src="./Images/qp.jpeg" width="370" height="300" style="border:0;">
+              <h5 class="card-title p-1" style='color:white;'>Quinto Patio La Vega</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 900px; background-color:rgb(52, 73, 94 );">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3762.0846539490185!2d-70.70035388468338!3d19.451916645102266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x8eb1cf5eafb85f07%3A0x334b7384edf666dc!2sExpreso%205to.%20Patio%2C%20Santiago%20De%20Los%20Caballeros%2051000!3m2!1d19.4519116!2d-70.69816519999999!5e0!3m2!1sen!2sdo!4v1618423077385!5m2!1sen!2sdo" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <h5 class="card-title p-1" style='color:white;'>Ubicación</h5>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body pl-5">
+              <img src="./Images/qps.jpg" width="370" height="300" style="border:0;">
+              <h5 class="card-title p-1" style='color:white;'>Quinto Patio Santiago</h5>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 900px; background-color:rgb(52, 73, 94 );">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d120502.8394005494!2d-70.5422132393716!3d19.294811357552856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e3!4m0!4m5!1s0x8eae29d2b5a154b7%3A0xd639be27b07d1a61!2sParada%20de%20Autobuses%20Salcedo%20-%20Santiago%2C%2034000!3m2!1d19.3804859!2d-70.42075969999999!5e0!3m2!1sen!2sdo!4v1618426333086!5m2!1sen!2sdo" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <h5 class="card-title p-1" style='color:white;'>Ubicación</h5>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body pl-5">
+              <img src="./Images/ps.jpg" width="370" height="300" style="border:0;">
+              <h5 class="card-title p-1" style='color:white;'>Parada Salcedo</h5>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 900px; background-color:rgb(52, 73, 94 );">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <br>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3767.3138060812075!2d-70.52325388468545!3d19.225150852262168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x8eb02b638cfad473%3A0xd90afaafd7e065cb!2sExpreso%20UCHOMVESA%20(La%20Vega%20-%20Santiago)%2C%20La%20Vega%2041000!3m2!1d19.2251458!2d-70.5210652!5e0!3m2!1sen!2sdo!4v1618422673565!5m2!1sen!2sdo" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <h5 class="card-title p-1" style='color:white;'>Ubicación</h5>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body pl-5">
+              <img src="./Images/ev.jpg" width="370" height="300" style="border:0;">
+              <h5 class="card-title p-1" style='color:white;'>Uchomvesa</h5>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
 
-   
-  <div class="card mb-3" style="max-width: 900px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-    <br>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3762.0846539490185!2d-70.70035388468338!3d19.451916645102266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x8eb1cf5eafb85f07%3A0x334b7384edf666dc!2sExpreso%205to.%20Patio%2C%20Santiago%20De%20Los%20Caballeros%2051000!3m2!1d19.4519116!2d-70.69816519999999!5e0!3m2!1sen!2sdo!4v1618423077385!5m2!1sen!2sdo" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-      <img src="./Images/qps.jpg" width="370" height="300" style="border:0;">
-        <h5 class="card-title">Quinto Patio Santiago</h5>
-        <br>
-        <br>
+    <div class="col-sm" align='right'>
+      <br><br><b>
+      <div class="card mb-3" style="width: 90%; height: 40%; background-color:rgb(52, 73, 94 );">
+        <div class='p-1 pt-4'><img src="./Images/cocacola.jpg" width="370" height="300" style="border:0;"></div>
+        <div class='p-1 pt-4'><img src="./Images/cocacola2.jpg" width="370" height="300" style="border:0;"></div>
+      </div>
+      <div class="card mb-3" style="width: 90%; height: 40%; background-color:rgb(52, 73, 94 );">
+        <div class='p-1 pt-4'><img src="./Images/amazon.jpg" width="370" height="300" style="border:0;"></div>
+        <div class='p-1 pt-4'><img src="./Images/albion.jpg" width="370" height="300" style="border:0;"></div>
       </div>
     </div>
-  </div>
-  </div>
-  <div class="card mb-3" style="max-width: 900px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-    <br>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d120502.8394005494!2d-70.5422132393716!3d19.294811357552856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e3!4m0!4m5!1s0x8eae29d2b5a154b7%3A0xd639be27b07d1a61!2sParada%20de%20Autobuses%20Salcedo%20-%20Santiago%2C%2034000!3m2!1d19.3804859!2d-70.42075969999999!5e0!3m2!1sen!2sdo!4v1618426333086!5m2!1sen!2sdo" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-      <img src="./Images/ps.jpg" width="370" height="300" style="border:0;">
-        <h5 class="card-title">Parada Salcedo</h5>
-        <br>
-        <br>
-      </div>
-    </div>
-  </div>
-  </div>
-  <div class="card mb-3" style="max-width: 900px;">
-  <div class="row g-0">
-    <div class="col-md-4">
-    <br>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d3767.3138060812075!2d-70.52325388468545!3d19.225150852262168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x8eb02b638cfad473%3A0xd90afaafd7e065cb!2sExpreso%20UCHOMVESA%20(La%20Vega%20-%20Santiago)%2C%20La%20Vega%2041000!3m2!1d19.2251458!2d-70.5210652!5e0!3m2!1sen!2sdo!4v1618422673565!5m2!1sen!2sdo" width="370" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-      <img src="./Images/ev.jpg" width="370" height="300" style="border:0;">
-        <h5 class="card-title">Uchomvesa</h5>
-
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
   </div>
 </div>
-<br>
-<br>  
-    </div>
-  </div>
-  
-
- </div> 
-
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

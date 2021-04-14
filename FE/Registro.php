@@ -49,7 +49,7 @@
                 <input type="text" style="color:rgb(47, 224, 186)" placeholder="Apellido" name="apellido">
             </div>
             <div>
-                <input type="text" style="color:rgb(47, 224, 186)" placeholder="Correo" name="email">
+                <input type="text" style="color:rgb(47, 224, 186)" placeholder="Correo" name="email" pattern=".+@[gG][mM][aA][iI][lL][.][cC][oO][mM]" title="Solo se permiten cuentas de @gmail.com">
             </div>
             <div class="password line-input">
                 <input type="password" style="color:rgb(47, 224, 186)" name="password" placeholder="Ingrese la contraseña">
