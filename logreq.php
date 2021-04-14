@@ -91,9 +91,20 @@
     <title>Iniciar Sesion</title>
     <link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.css">
 	  <link rel="stylesheet" type="text/css" href="alertifyjs/css/themes/default.css">  
+    <script src="js/smooth-scroll.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="alertifyjs/alertify.js"></script>
     <link rel="stylesheet" href="./style.css">
+    <script>
+      smoothScroll.init({
+      selector: '[data-scroll]', // Selector for links (must be a class, ID, data attribute, or element tag)
+      selectorHeader: null, // Selector for fixed headers (must be a valid CSS selector) [optional]
+      speed: 2000, // Integer. How fast to complete the scroll in milliseconds
+      easing: 'easeInOutCubic', // Easing pattern to use
+      offset: 0, // Integer. How far to offset the scrolling anchor location in pixels
+      callback: function ( anchor, toggle ) {} // Function to run after scrolling
+      });
+    </script>
 </head>
 <header class="header">
   <nav class="navbar navbar-expand-lg navbar-light">
@@ -124,7 +135,7 @@
     <?php if(!empty($message)): ?>
       <p> <?= $message ?></p>
     <?php endif; ?>
-    <div class= "containerlog">
+    <div class= "containerlog" id="login">
       <div class="header">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" class="form" id="formlog">
             <div class="text-center">
@@ -159,5 +170,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script> new WOW().init();</script>
   </body>
 </html>

@@ -75,14 +75,14 @@ input[type=submit]{
 
 
 .footer{
+    position:static;
     border-top: 5px solid #008080;
     width: 100%;
-    text-align: right;
     color: rgb(47, 224, 186);
-    position:static;
     left:0px;
     bottom:0px;
     height: 15;
+    text-align: center;
 }
 .linea{
     padding: 20px;
