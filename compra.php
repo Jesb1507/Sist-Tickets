@@ -34,8 +34,11 @@
     $montousa = $_SESSION['precio'] / $usatord;
 
 
+<<<<<<< HEAD
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
+=======
+>>>>>>> parent of e3c52fb (Revert "ticket")
         
         $iduser = $_SESSION['IDuser'];
         $NombreT = $_POST['NombreT'];

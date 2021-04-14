@@ -15,13 +15,11 @@
     if (isset($_GET['s'])){
         switch ($_GET['s']) {
             case 'successdlt':
-                $mensaje = 'Ruta inhabilitada correctamente';
-                $color = 'success';
+                $mensaje1 = 'Ruta inhabilitada correctamente';
                 break;
             
             case 'errordlt':
-                $mensaje = 'Imposible inhabilitar la ruta';
-                $color = 'danger';
+                $mensaje2 = 'Imposible inhabilitar la ruta';
                 break;
         }
     }
@@ -29,24 +27,24 @@
     if (isset($_GET['s'])){
         switch ($_GET['s']) {
             case 'successhbl':
-                $mensaje = 'Ruta habilitada correctamente';
+                $mensaje3 = 'Ruta habilitada correctamente';
                 $color = 'success';
                 break;
             
             case 'errorhbl':
-                $mensaje = 'Imposible habilitar la ruta';
+                $mensaje4 = 'Imposible habilitar la ruta';
                 $color = 'danger';
                 break;
         }
     }
 
-    if (!empty($mensaje) and !empty($color)) {
-        //echo'<div class="alert alert-'.$color.'" role="alert">'.$mensaje .'</div> ';
-        echo'<div class="alert alert-'.$color.'" role="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <span>'.$mensaje.'</span>
-        </div>';
-    }
+    // if (!empty($mensaje) and !empty($color)) {
+    //     //echo'<div class="alert alert-'.$color.'" role="alert">'.$mensaje .'</div> ';
+    //     echo'<div class="alert alert-'.$color.'" role="alert">
+    //     <button type="button" class="close" data-dismiss="alert">&times;</button>
+    //     <span>'.$mensaje.'</span>
+    //     </div>';
+    // }
     
     function lista_estadorutas(){		
         include('database.php');	
@@ -59,6 +57,10 @@
 <div class="panel panel-default" style="margin-top: 10 px">
     <div class="panel-heading">
         <h1>Listado de Rutas</h1>
+        
+        <link rel="stylesheet" type="text/css" href="alertifyjs/css/alertify.css">
+	    <link rel="stylesheet" type="text/css" href="alertifyjs/css/themes/default.css">    
+        <script src="alertifyjs/alertify.js"></script>
     </div>
     <div class="panel-body">
         <br>
@@ -99,6 +101,27 @@
             </tbody>
 
         </table>
+        <?php if(!empty($mensaje1)): ?> 
+            <script>
+                alertify.alert('La CamiontaExpress', 'Ruta inhabilitada correctamente', function(){ alertify.success('Ok'); });
+            </script>
+        <?php endif; ?>      
+        <?php if(!empty($mensaje2)): ?> 
+            <script>
+                alertify.alert('La CamiontaExpress', 'Imposible inhabilitar la ruta', function(){ alertify.success('Ok'); });
+            </script>
+        <?php endif; ?>    
 
+        <?php if(!empty($mensaje3)): ?> 
+            <script>
+                alertify.alert('La CamiontaExpress', 'Ruta habilitada correctamente', function(){ alertify.success('Ok'); });
+            </script>
+        <?php endif; ?> 
+
+        <?php if(!empty($mensaje4)): ?> 
+            <script>
+                alertify.alert('La CamiontaExpress', 'Imposible habilitar la ruta', function(){ alertify.success('Ok'); });
+            </script>
+        <?php endif; ?> 
     </div>
 </div> <!-- Fin del Panel -->
